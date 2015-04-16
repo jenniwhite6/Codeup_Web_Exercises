@@ -1,0 +1,64 @@
+/*font styles*/
+body {
+	font-family:'Montserrat', sans-serif;
+	color: #BBB9B9;
+	margin: 30px;
+}
+
+h1 {
+	color: rgb(81, 158, 232);
+	font-size: 40px;
+}
+h2 {
+	color: #5441CB;
+	text-decoration: underline;
+}
+
+p {
+	color: #BBB9B9;
+}
+
+/*background characteristics*/
+body {
+	background-color: #2F3231;
+	background-image: url(/img/smile.png);
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: right;
+	background-size: 100px, 100px;
+}
+
+/*anchor states*/
+a:link {
+	color: blue;
+}
+
+a:visited {
+	color: rgb(171, 0, 255);
+}
+
+a:hover {
+	color: yellow;
+}
+
+a:active {
+	color: white;
+}
+
+/*List bullets*/
+li {
+	list-style: circle;
+}
+/*Table settings*/
+table {
+	table-layout: fixed;
+}
+
+th {
+	font-weight: bold;
+}
+td {
+	padding-left: .5em;
+	font-size: 12px;
+	text-align: center;
+}

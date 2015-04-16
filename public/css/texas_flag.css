@@ -1,0 +1,62 @@
+/*CONTENTS
+*
+* Body properties
+*
+* Background box
+*
+* Other boxes
+*
+* STAR!
+*\
+
+
+/*Body properties*/
+body {
+	background-color: rgb(174, 164, 164);
+}
+
+/*Background box*/
+.background {
+	width: 500px;
+	height:	300px;
+	position: relative;
+	margin:	50px auto;
+}
+
+.blue {
+	background-color: rgb(17, 105, 242);
+}
+
+/*Other boxes*/
+.red-box {
+	background-color: rgb(255, 0, 232);
+	width: 300px;
+	height: 150px;
+	position: absolute;
+	right: 0px;
+}
+
+.white-box {
+	background-color: yellow;
+	width: 300px;
+	height: 150px;
+	position: absolute;
+	right: 0px;
+	bottom:0px;
+}
+
+/*STAR!*/
+.star {
+	color: white;
+	font-size: 130px;
+	position: absolute;
+	top: 40px;
+	left: 35px;
+	-webkit-transform: 1s ease-in-out;
+
+}
+
+.star:hover {
+	-webkit-transform: scale(2);
+}
+

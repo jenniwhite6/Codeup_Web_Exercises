@@ -1,0 +1,81 @@
+/*BACKGROUND CONTAINER*/
+.flag-background {
+	background-color: rgb(219, 25, 25);
+	width: 500px;
+	height: 300px;
+	margin: 50px auto;
+	position: relative;
+	overflow: hidden;
+
+}
+
+/*FOUR BOXES*/
+.blue-box {
+	background-color: rgb(35, 35, 179);
+	width: 200px;
+	height: 100px;
+	border: 20px solid white;
+	position: absolute;
+	overflow: hidden;
+}
+
+.blue-box.top-left {
+	top: -20px;
+	left: -20px;
+}
+
+.blue-box.top-right {
+	top: -20px;
+	right: -20px;
+}
+
+.blue-box.bottom-left {
+	bottom: -20px;
+	left: -20px;
+}
+
+.blue-box.bottom-right {
+	bottom: -20px;
+	right: -20px;
+}
+
+/*SLANTED LINES*/
+
+.slanted-line {
+	background-color: rgb(219, 25, 25);
+	width: 350px;
+	height: 20px;
+	border-top: 30px solid white;
+	border-bottom: 10px solid white;
+	position: absolute;
+}
+
+.slanted-line.top-left {
+	top: 45px;
+	left: -60px;
+	-webkit-transform: rotate(35deg);
+}	
+
+.slanted-line.top-right {
+	top: 45px;
+	right: -60px;
+	-webkit-transform: rotate(145deg);	
+}
+
+.slanted-line.bottom-left {
+	bottom: 45px;
+	left: -60px;
+	-webkit-transform: rotate(-35deg);	
+}
+
+.slanted-line.bottom-right {
+	bottom: 45px;
+	right: -60px;
+	-webkit-transform: rotate(-145deg);	
+}
+
+.slanted-line:hover {
+	-webkit-transform: rotate(720deg);
+	-webkit-transition: 1.5s;
+}
+

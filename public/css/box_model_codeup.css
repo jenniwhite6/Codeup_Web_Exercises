@@ -1,0 +1,63 @@
+/*Title margin*/
+h1 {
+	margin-bottom: 50px;
+}
+
+/*Styling for all boxes*/
+.box {
+	border: 1px solid black;
+	width: 50px;
+	height: 50px;
+	padding: 11px;
+	margin-right: 50px;
+	margin-bottom: 50px;
+	float:left;
+	font-weight:bold;
+	color: white;
+}
+
+/*Learn to code banner*/
+#learn-code {
+	position: absolute;
+	top:0;
+	right:0;
+}
+
+/*Containers*/
+.container {
+	width: 100%;
+	position: relative;
+	clear: left;
+}
+
+/*Codeup arrows*/
+.arrow {
+	position: relative;
+	bottom: 100px;
+	left: 45px;
+}
+
+/*Colored boxes*/
+#red-box {
+	background-color: rgb(236, 60, 60);
+}
+
+#orange-box {
+	background-color: rgb(255, 145, 0);
+}
+
+#yellow-box{
+	background-color: yellow;
+}
+
+#green-box{
+	background-color: rgb(29, 190, 92);
+}
+
+#blue-box{
+	background-color: rgb(70, 89, 224);
+}
+
+#purple-box{
+	background-color: rgb(160, 48, 224);
+}

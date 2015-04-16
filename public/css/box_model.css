@@ -1,0 +1,55 @@
+/*
+CONTENTS
+*
+GENERIC STYLING... color and font for all boxes
+*
+BOXES............. specific styling for each box
+*/
+
+
+/*------------------*\
+   GENERIC STYLING
+\*------------------*/
+
+div {
+	border: 1px solid black;
+	width: 150px;
+	height: 50px;
+	padding: 11px;
+	margin-bottom:10px;
+	font-weight:bold;
+	color: white;
+}
+
+/*------------------*\
+        BOXES
+\*------------------*/
+
+#red-box{
+	background-color: red;
+}
+
+#orange-box{
+	background-color: orange;
+	margin-left: 30px;
+}
+
+#yellow-box{
+	background-color: yellow;
+	margin-left: 60px;
+}
+
+#green-box{
+	background-color: green;
+	margin-left: 90px;
+}
+
+#blue-box{
+	background-color: blue;
+	margin-left: 120px;
+}
+
+#purple-box{
+	background-color: purple;
+	margin-left: 150px;
+}

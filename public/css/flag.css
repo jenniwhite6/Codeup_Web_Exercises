@@ -1,0 +1,62 @@
+.background-red {
+	width: 575px;
+	height:375px;
+	background-color: rgb(234, 135, 135);
+	position:relative;
+	margin: 50px auto;
+}
+
+.box-blue {
+	width:250px;
+	height:175px;
+	background-color: rgb(119, 119, 219);
+	position: absolute;
+}
+
+.stars {
+	color:white;
+	position:absolute;
+	margin-top: 5px;
+	margin-right: 10px;
+	margin-left: 20px;
+	font-size: 24px;
+}
+
+#star-align {
+	text-align: center;
+}
+
+.stripes-white {
+	width: 575px;
+	height: 25px;
+	background-color: white;
+	position:absolute;
+}
+
+#stripe1 {
+	top:25px;
+}
+
+#stripe2 {
+	top:75px;
+}
+
+#stripe3 {
+	top:125px;
+}
+
+#stripe4 {
+	top:175px;
+}
+
+#stripe5 {
+	top:225px;
+}
+
+#stripe6 {
+	top:275px;
+}
+
+#stripe7 {
+	top: 325px;
+}
