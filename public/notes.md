@@ -12,3 +12,6 @@ Remember, an element ID is UNIQUE!!! Points to ONE element only. [# - id selecto
 An element CLASS can point to a whole group of elements. [. - class selector]
 BLOG
 Look @ pave.com for inspiration!
+
+Q: Why do I need clearfix for my layout header to work?
+Q: How can I prevent the fixed left nav from overlapping the footer when I shrink the window?

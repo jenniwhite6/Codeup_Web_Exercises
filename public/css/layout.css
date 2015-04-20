@@ -1,0 +1,176 @@
+
+/*NAV*/
+
+header.top-navbar {
+	margin-bottom: 60px;
+} 
+
+nav.top-navbar {
+	background-color: rgb(255, 253, 71);
+}
+
+.logo img {
+	width: 40px;
+	height: 40px;
+	position: absolute;
+	left: 20px;
+	padding: 19px;
+}
+
+.top-navbar li {
+	display: inline;
+	list-style-type: none;
+}
+
+.top-navbar ul {
+	float:right;
+	margin: 0;
+	margin-right: 40px;
+}
+
+.top-navbar a {
+	display: inline-block;
+	float: left;
+	padding: 30px;
+	text-decoration: none;
+	color: black;
+}
+
+.top-navbar a:hover {
+	background: rgb(72, 222, 234);
+	color: white;
+}
+
+/*LEFT SIDEBAR*/
+
+aside.left-nav {
+	width: 150px;
+	position: fixed;
+	padding: 20px;
+	padding-left: 0;
+	padding-top: 0;
+}
+
+aside.left-nav li {
+	list-style-type: none;
+	background: transparent;
+}
+aside.left-nav ul {
+	margin: 0;
+	padding: 0;
+}
+
+aside.left-nav a {
+	display: block;
+	text-decoration: none;
+	padding: 20px;
+	text-align: right;
+	color: white;
+	margin-bottom: 10px;
+	background-color: black;
+}
+
+aside.left-nav a:hover {
+	color: rgb(72, 222, 234);
+}
+
+/*RIGHT ABOUT CONTENT*/
+
+.right-about {
+	position: absolute;
+	right: 0px;
+	background-color: red;
+	width: 250px;
+	padding: 20px;
+}
+
+.right-about header {
+	margin-right: 100px;
+}
+
+.right-about h2 {
+	font-size: 30px;
+	margin-top: 0px; 
+	margin-bottom: 10px;
+	color: white;
+}
+
+.right-about p {
+	color: white;
+	margin-bottom: 0;
+}
+
+/*MAIN-CONTENT AREA*/
+/*Intro Header*/
+
+article.intro h2 {
+	font-size: 40px;
+	margin-top: 0;
+	margin-bottom: 10px;
+	color: rgb(72, 222, 234)
+}
+
+.normal-content h3 {
+	margin: 0;
+}
+
+/*Meat of main*/
+
+.wrap {
+	margin-bottom: 60px;
+}
+
+article.normal-content h3 {
+	font-size: 30px;
+}
+
+article {
+	margin: 0;
+	margin-left: 210px;
+  	margin-right: 350px;
+  	margin-bottom: 40px;
+  	padding-bottom: 0;
+  	padding-top: 0px;
+}
+
+/*FOOTER*/
+footer {
+	background-color: rgba(72, 222, 234, 0.49);
+	bottom: 0;
+	width: 100%;
+	margin-top: 10px;
+	padding-top: 30px;
+	padding-bottom: 30px;
+}
+
+footer ul {
+	margin-left: 80px;
+	padding: 0;
+}
+
+footer li {
+	list-style-type: none;
+}
+
+footer li a {
+	text-decoration: none;
+	display: block;
+	padding: 10px;
+	margin-bottom: 10px;
+}
+
+/*Misc helpers */
+.text-center {text-align: center;}
+.clearfix:after {
+     visibility: hidden;
+     display: block;
+     font-size: 0;
+     content: " ";
+     clear: both;
+     height: 0;
+     }
+.clearfix { display: inline-block; }
+/* start commented backslash hack \*/
+* html .clearfix { height: 1%; }
+.clearfix { display: block; }
+/* close commented backslash hack */

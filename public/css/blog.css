@@ -14,15 +14,15 @@
 /*-----------------*\
 	NAV
 \*-----------------*/
+
 body > nav {
 	padding: 10px;
 	margin-top: 20px;
 }
 
 nav > h1 {
-	padding: 20px;
 	text-align: center;
-	color: #fff;
+	color: rgb(200, 199, 242);
 	font-size:50px;
 	display: inline;
 	margin-left: 10px;
@@ -31,9 +31,9 @@ nav > h1 {
 nav > ul {
 	float:right;
 	list-style: none;
-	margin: inherit;
 	margin-right: 20px;	
 }
+
 nav ul li {
 	display: inline;
 }
@@ -46,25 +46,35 @@ nav li a {
 	border-radius: 22px;
 	text-align: center;
 	text-decoration: none;
-	overflow: hidden;
 	font-family: 'Open Sans', sans-serif;
 }
 
 a:hover {
-	background-color: white;
+	background-color: rgb(200, 199, 242);
 	color: black;
 }
-
 
 /*-----------------*\
 	HEADER
 \*-----------------*/
-header {
-	
+
+.top-header {
+	padding: 10px;
+	text-align: center;
 }
 
-header h1 {
-	
+.top-header > h1 {
+	color: white;
+	font-size: 60px;
+	margin-bottom: 10px;
+}
+
+.intro {
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 20px;
+	width: 50%;
+	color: white;
 }
 
 /*-----------------*\
@@ -79,4 +89,33 @@ body {
 	background-color: black;
 }
 
+section {
+	margin-right: 150px; 
+	margin-left: 150px;
+	padding: 40px;
+	margin-bottom: 40px;
+	background-color: rgba(255, 255, 255, 0.48);
+}
+
+article {
+	background-color: rgba(255, 255, 255, .9);
+	padding: 20px;
+}
+
+h2.blog-date {
+	margin-bottom: 20px;
+	margin-top: 0;
+	font-size: 30px;
+	border-bottom: 1px solid rgb(170, 166, 189);
+	padding-bottom: 5px;
+}
+
+h2.blog-title {
+	font-size: 36px;
+	color: rgb(73, 72, 108);
+}
+
+img {
+	display: block;
+}
 

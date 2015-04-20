@@ -1,0 +1,151 @@
+/**TOP NAV BAR***/
+
+/*Header container*/
+
+header.top-header {
+	width: 100%;
+	position: relative;
+	top: 0;
+	background-color: yellow;
+}
+
+/*Logo*/
+
+img.top-header {
+	width: 30px;
+	height: 30px;
+	position: absolute;
+	left: 20px;
+}
+
+/*Menu*/
+
+nav.top-nav {
+	float: right;
+	background-color: blue;
+}
+
+ul.top-nav {
+	float:right;
+}
+
+.top-nav li {
+	display: inline;
+}
+
+a.top-nav {
+	padding: 20px;
+	text-align: center;
+	float: left;
+}
+
+/***LEFT NAV BAR***/
+aside.left-nav {
+	background-color: red;
+}
+
+ul.left-nav {
+	position: absolute;
+	background-color: black;
+}
+
+a.left-nav {
+	padding: 20px;
+	text-align: right;
+	padding-left: 50px;
+}
+
+a.left-nav:hover {
+	background-color: white;
+	color: red;
+}
+
+/***MAIN CONTENT***/
+
+.main-content {
+	margin: 50px 150px 40px 150px;	
+}
+
+/***FOOTER***/
+
+footer {
+	bottom: 0;
+	width: 100%;
+	padding: 40px 80px;
+	clear: left;
+	background-color: yellow;
+}
+
+footer li {
+	display: inline;
+}
+
+a.footer {
+	padding: 20px;
+}
+
+/**********/
+
+
+/*MISC*/
+/*Unordered Lists*/
+li {
+	list-style-type: none;
+}
+
+li a {
+	text-decoration: none;
+}
+
+ul {
+	margin: 0;
+	padding: 0;
+}
+
+/*Display*/
+
+.inline {
+	display: inline;
+}
+
+.inline-block {
+	display: inline-block;
+}
+
+.block {
+	display: block;
+}
+
+/*Stying*/
+
+h1 {
+
+}
+
+h2 {
+
+}
+
+h3 {
+
+}
+
+p {
+
+}
+
+/*CLEARFIX*/
+
+.clearfix:after {
+     visibility: hidden;
+     display: block;
+     font-size: 0;
+     content: " ";
+     clear: both;
+     height: 0;
+     }
+.clearfix { display: inline-block; }
+/* start commented backslash hack \*/
+* html .clearfix { height: 1%; }
+.clearfix { display: block; }
+/* close commented backslash hack 
