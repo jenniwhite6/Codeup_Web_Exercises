@@ -1,0 +1,76 @@
+/*BOX*/
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+/*CONTAINER*/
+.container {
+    margin: 0 auto;
+    width: 80%;
+    max-width: 1200px;
+}
+
+/*ROWS*/
+.row {
+    width:100%;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/*COLUMNS*/
+.column {
+    float: left;
+    padding: 10px;
+    width: 100%;
+}
+.one-eighth {
+    width: 12.5%;
+}
+.one-sixth {
+    width: 16.66%;
+}
+.one-fourth {
+    width: 25%;
+}
+.one-third {
+    width: 33.33%;
+}
+.three-eighths {
+	width: 37.5%;
+}
+.one-half {
+    width: 50%;
+}
+.two-thirds {
+	width: 66.67%;
+}
+
+/*OFFSETS*/
+.offset-one-eighth {
+    margin-left: 12.5%;
+}
+.offset-one-sixth {
+    margin-left: 16.66%;
+}
+.offset-one-fourth {
+    margin-left: 25%;
+}
+.offset-one-third {
+    margin-left: 33.3%;
+}
+.offset-three-eighths {
+	margin-left: 37.5%;
+}
+.offset-one-half {
+    margin-left: 50%;
+}
+.offset-two-thirds {
+	margin-left: 66.67%;
+}

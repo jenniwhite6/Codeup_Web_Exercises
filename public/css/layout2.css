@@ -1,3 +1,18 @@
+/*BOX SIZING*/
+
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+/*BODY*/
+
+body {
+	background-color: #e1e1e1;
+}
+
 /**TOP NAV BAR***/
 
 /*Header container*/
@@ -6,27 +21,13 @@ header.top-header {
 	width: 100%;
 	position: relative;
 	top: 0;
-	background-color: yellow;
-}
-
-/*Logo*/
-
-img.top-header {
-	width: 30px;
-	height: 30px;
-	position: absolute;
-	left: 20px;
+	background-color: rgb(202, 203, 205);
 }
 
 /*Menu*/
 
-nav.top-nav {
+nav.top-nav, ul.top-nav {
 	float: right;
-	background-color: blue;
-}
-
-ul.top-nav {
-	float:right;
 }
 
 .top-nav li {
@@ -34,46 +35,64 @@ ul.top-nav {
 }
 
 a.top-nav {
-	padding: 20px;
+	padding: 30px;
 	text-align: center;
 	float: left;
+	color: white;
+}
+
+a.top-nav:hover {
+	background-color: rgb(249, 46, 6);
 }
 
 /***LEFT NAV BAR***/
-aside.left-nav {
-	background-color: red;
-}
 
-ul.left-nav {
-	position: absolute;
-	background-color: black;
+aside.left-nav {
+	background-color: white;
+	float: left;
+	height: 100%;
+	border-radius: 3px;
 }
 
 a.left-nav {
-	padding: 20px;
-	text-align: right;
-	padding-left: 50px;
+	padding: 30px 60px;
+	text-align: center;
+	color: rgb(115, 116, 118);
 }
 
 a.left-nav:hover {
-	background-color: white;
-	color: red;
+	background-color: black;
+	color: rgb(249, 46, 6);
 }
 
 /***MAIN CONTENT***/
 
 .main-content {
-	margin: 50px 150px 40px 150px;	
+	margin: 20px 250px;	
+}
+
+main {
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+
+img.death-star {
+	float: left;
+	width: 190px;
+	height: 190px;
+	margin-right: 30px;
+	margin-bottom: 10px;
+	border-radius: 3px;
 }
 
 /***FOOTER***/
 
 footer {
+	position: relative;
 	bottom: 0;
 	width: 100%;
 	padding: 40px 80px;
-	clear: left;
-	background-color: yellow;
+	background-color: rgb(202, 203, 205);
 }
 
 footer li {
@@ -82,6 +101,7 @@ footer li {
 
 a.footer {
 	padding: 20px;
+	color: rgb(249, 46, 6);
 }
 
 /**********/
