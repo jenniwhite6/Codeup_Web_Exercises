@@ -6,17 +6,17 @@ html {
     box-sizing: inherit;
 }
 
-/*CONTAINER*/
+/*CONTAINERS*/
 .container {
     margin: 0 auto;
-    width: 80%;
     max-width: 1200px;
 }
 
-/*ROWS*/
-.row {
-    width:100%;
+.column > .row {
+    margin-left: -10px;
+    margin-right: -10px;
 }
+/*ROWS*/
 
 .row:after {
     content: "";
@@ -30,6 +30,7 @@ html {
     padding: 10px;
     width: 100%;
 }
+
 .one-eighth {
     width: 12.5%;
 }
@@ -50,6 +51,9 @@ html {
 }
 .two-thirds {
 	width: 66.67%;
+}
+.three-fourths {
+    width: 75%;
 }
 
 /*OFFSETS*/
