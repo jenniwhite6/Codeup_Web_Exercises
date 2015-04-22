@@ -8,14 +8,15 @@ html {
 
 /*CONTAINERS*/
 .container {
-    margin: 0 auto;
+    margin: 0;
     max-width: 1200px;
 }
 
-.column > .row {
+/*.column > .row {
     margin-left: -10px;
     margin-right: -10px;
-}
+}*/
+
 /*ROWS*/
 
 .row:after {
@@ -31,6 +32,9 @@ html {
     width: 100%;
 }
 
+.one-twelfth {
+    width: 8.33%;
+}
 .one-eighth {
     width: 12.5%;
 }
@@ -57,6 +61,9 @@ html {
 }
 
 /*OFFSETS*/
+.offset-one-twelfth {
+    margin-left: 8.33%;
+}
 .offset-one-eighth {
     margin-left: 12.5%;
 }
