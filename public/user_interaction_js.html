@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>User Interaction JS</title>
+</head>
+<body>
+	<script type="text/javascript">
+		"use script";
+		do {
+			var fname = prompt("What's your first name?");
+
+			if (fname != "") {
+				alert("Nice to meet you, " + fname + "!");
+			} else {
+				alert("Oops - that's not your name!");
+				prompt("Please enter your first name.");
+			}
+		} while (fname.length < 0); 
+
+// todo: Ask the user for their name.
+//       Keep asking if an empty input is provided.
+
+// todo: Show an alert message that welcomes the user based on their input.
+
+// todo: Ask the user if they like pizza.
+//       Based on their answer show a creative alert message.
+
+	</script>
+</body>
+</html>
