@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Palindrome Check</title>
+</head>
+<body>
+	<script type="text/javascript">
+
+		"use strict";
+
+		var input = prompt('Input a word to see if it\'s a palindrome!');
+
+		var inputArray = input.split ('');
+		console.log(inputArray);
+
+		var inputArrayOriginal = inputArray.slice(0);
+		console.log(inputArrayOriginal);
+
+		var inputArrayReverse = inputArray.reverse();
+		console.log(inputArrayReverse);	
+
+		if (input == inputArrayReverse.join('')) {
+			alert('YAY, Palindrome!');
+		} else {
+			alert('Not a palindrome.');
+		}
+
+
+	</script>
+
+</body>
+</html>

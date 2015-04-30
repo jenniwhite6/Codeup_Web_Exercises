@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Objects Intro</title>
+</head>
+<body>
+	<script type="text/javascript">
+
+		"use strict";
+
+		var person = {};
+		person.firstName = 'Jenni';
+		person.lastName = 'White';
+
+		person.sayHello = function () {
+			alert('Why, hello there, ' + this.firstName + ' ' + this.lastName + '!');
+		}
+
+		person.sayHello();
+
+	</script>
+
+</body>
+</html>
