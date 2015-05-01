@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Objects Math Woohoooo</title>
+</head>
+<body>
+	<script type="text/javascript">
+
+		var circle = {
+		    radius: 3,
+		    getArea: function () {
+				return Math.PI * Math.pow(this.radius, 2);
+		    },
+
+		    getCircumference: function () {
+		    	return 2 * Math.PI * this.radius;
+		    },
+
+		    logInfo: function (round) {
+		       	var area = this.getArea();
+		       	var circumference = this.getCircumference();
+
+		       	if (round) {
+		       		area = Math.round(area);
+		       		circumference = Math.round(circumference);
+		       	}
+
+		        console.log('Area of a circle with radius: ' + this.radius + ' is: ' + area + ' and the circumference is: ' + circumference);
+		    }
+		};
+
+		circle.logInfo(false);
+		circle.logInfo(true);
+
+		circle.radius = 5;
+
+		circle.logInfo(false);
+		circle.logInfo(true);
+			
+	</script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>High Low Game</title>
+</head>
+<body>
+	<script type="text/javascript">
+
+		"use strict";
+			
+		do {
+			var random = Math.floor((Math.random()*100)+1);
+			console.log(random);
+
+			do {
+				
+				var guess = prompt("Guess which number I'm thinking of!");
+
+				if (guess > random) {
+					alert("Too high!");
+				} else if (guess < random) {
+					alert("Too low!");
+				}
+
+			} while (guess != random);
+			
+			alert("WOOHOOOOO! You got it!");
+			var again = confirm("Wanna play again?");
+		
+		} while (again);
+
+	</script>
+
+</body>
+</html>
+

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Objects in JSON</title>
+</head>
+<body>
+	<script type="text/javascript">
+
+		"use strict";
+		var fullName = function(firstName,lastName) {
+			firstName.concat(lastName);
+		};
+		var books = [{
+			"title":'Harry Potter',
+			"author": {
+				"firstName":'JK',
+				"lastName":'Rowling',
+				"fullName": fullName(),
+			}
+		}, {
+			"title":'Catch 22',
+			"author": {
+				"firstName":'Joseph',
+				"lastName":'Heller'
+			}
+		}, {
+			"title":'Golden Compass',
+			"author": {
+				"firstName":'Philip',
+				"lastName":'Pullman'
+			}
+		}, {
+			"title":'The Art of Stillness',
+			"author": {
+				"firstName":'Pico',
+				"lastName":'Iyer'
+				}
+		}, {			
+				"title":'The Little Prince',
+				"author": {
+					"firstName":'Antoine',
+					"lastName":'de Saint-Exupery'
+				}
+		}];
+
+		console.log(books);
+
+		books.forEach(function (book, index) {
+			console.log("Book #" + [index+1]);
+		    console.log("Title: " + book.title);
+		    console.log("Author: " + book.author.firstName + ' ' + book.author.lastName);
+		    console.log("AUTHOR: " + book.author.fullName);
+		    console.log("----------");
+		});
+
+	</script>
+
+</body>
+</html>
