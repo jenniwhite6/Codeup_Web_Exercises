@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Defuse the BOM</title>
+    <link rel="stylesheet" type="text/css" href="/css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="/css/defuse_the_bom.css">
+</head>
+<body>
+    <h2 id="message">This BOM will self-destruct in <span id="timer">__</span> seconds...</h2>
+
+    <button id="defuser">Defuse the BOM</button>
+
+    <button id="refuser">RE-fuse the BOM</button>
+
+    <script>
+
+        "use strict";
+
+        var detonationTimer = 10;
+        var countDown;
+        var bodyElement = document.getElementsByTagName('body')[0];
+
+
+        function updateTimer() {
+
+            if (detonationTimer == 0) {
+                document.body.innerHTML = '';
+                bodyElement.style['background-image'] = 'url(/img/death-star.jpg)';
+                alert('EXTERMINATE!');
+            } else if (detonationTimer > 0) {
+                document.getElementById('timer').innerHTML = detonationTimer;
+            }
+
+            detonationTimer--;
+        };
+
+        countDown = setInterval(updateTimer, 1000);
+
+        function defuseTheBOM()
+        {
+            clearInterval(countDown);
+        };
+
+        var defuser = document.getElementById('defuser');
+            defuser.addEventListener('click', defuseTheBOM, false);
+
+        var refuser = document.getElementById('refuser');
+            refuser.addEventListener('click', updateTimer, false);
+
+    </script>
+</body>
+</html>

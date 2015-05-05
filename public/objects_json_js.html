@@ -7,49 +7,55 @@
 	<script type="text/javascript">
 
 		"use strict";
-		var fullName = function(firstName,lastName) {
-			firstName.concat(lastName);
+
+		function fullName () {
+			return this.firstName + ' ' + this.lastName;
 		};
+
 		var books = [{
 			"title":'Harry Potter',
 			"author": {
 				"firstName":'JK',
 				"lastName":'Rowling',
-				"fullName": fullName(),
+				"fullName": fullName
 			}
 		}, {
 			"title":'Catch 22',
 			"author": {
 				"firstName":'Joseph',
-				"lastName":'Heller'
+				"lastName":'Heller',
+				"fullName": fullName				
 			}
 		}, {
 			"title":'Golden Compass',
 			"author": {
 				"firstName":'Philip',
-				"lastName":'Pullman'
+				"lastName":'Pullman',
+				"fullName": fullName				
 			}
 		}, {
 			"title":'The Art of Stillness',
 			"author": {
 				"firstName":'Pico',
-				"lastName":'Iyer'
+				"lastName":'Iyer',
+				"fullName": fullName				
 				}
 		}, {			
 				"title":'The Little Prince',
 				"author": {
 					"firstName":'Antoine',
-					"lastName":'de Saint-Exupery'
+					"lastName":'de Saint-Exupery',
+					"fullName": fullName				
 				}
 		}];
 
 		console.log(books);
 
 		books.forEach(function (book, index) {
-			console.log("Book #" + [index+1]);
+			console.log("Book #" + (index+1));
 		    console.log("Title: " + book.title);
 		    console.log("Author: " + book.author.firstName + ' ' + book.author.lastName);
-		    console.log("AUTHOR: " + book.author.fullName);
+		    console.log("AUTHOR: " + book.author.fullName());
 		    console.log("----------");
 		});
 
