@@ -1,0 +1,72 @@
+<html>
+<head>
+    <title>DOM: Query and Modify</title>
+</head>
+<body>
+    <style>
+        * {
+            margin-left: 50px;
+        }
+
+        p {
+            margin: 50px;
+            background-color: #eee;
+            padding: 20px;
+        }
+
+        #main-header {
+            margin-top: 60px;
+        }
+    </style>
+
+    <h1 id="main-header">Hello World!</h1>
+
+    <ul>
+        <li data-dbid="1">Item 1</li>
+        <li data-dbid="2">Item 2</li>
+        <li data-dbid="3">Item 3</li>
+        <li data-dbid="4">Item 4</li>
+        <li data-dbid="5">Item 5</li>
+    </ul>
+
+    <h2 id="sub-header">Hello Again.</h2>
+
+    <p class="sub-paragraph">
+        Collaboratively administrate empowered markets via plug-and-play networks. Dynamically procrastinate B2C users after installed base benefits. Dramatically visualize customer directed convergence without revolutionary ROI.
+    </p>
+    <p class="sub-paragraph">
+        Efficiently unleash cross-media information without cross-media value. Quickly maximize timely deliverables for real-time schemas. Dramatically maintain clicks-and-mortar solutions without functional solutions.
+    </p>
+    <p class="sub-paragraph">
+        Completely synergize resource sucking relationships via premier niche markets. Professionally cultivate one-to-one customer service with robust ideas. Dynamically innovate resource-leveling customer service for state of the art customer service. 
+    </p>
+
+    <script>
+
+
+        var mainHeader = document.getElementById('main-header');
+            mainHeader.innerHTML = 'JavaScript is Cool';
+
+        var subHeader = document.getElementById('sub-header');
+            subHeader.style['color'] = 'blue';
+
+        var listItems = document.getElementsByTagName('li');
+
+        for (i = 0; i < listItems.length; i++) {
+            var dbId = listItems[i].attributes['data-dbid'].value;
+                if (dbId == 1) {
+                    listItems[i].style['color'] = 'blue';
+                } else if (dbId % 2 == 0) {
+                    listItems[i].style['color'] = 'grey';
+                }
+        }
+
+        var subParagraphs = document.getElementsByClassName('sub-paragraph');
+            for (i = 0; i < subParagraphs.length; i++) {
+                subParagraphs[i].innerHTML = 'Mission Accomplished!';
+            }
+
+    </script>
+
+</body>
+</html>

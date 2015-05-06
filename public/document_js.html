@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>DOM-da-da-DOMMMMMMM</title>
+</head>
+<body>
+	<h1 id="heading-1">Hello, Codeup!</h1>
+
+		<p class="odd-paragraph">Yadda, yadda, yadda</p>
+			<p class="even-paragraph">Yadda, yadda, yadda</p>
+		<p class="odd-paragraph">Yadda, yadda, yadda</p>
+			<p class="even-paragraph">Yadda, yadda, yadda</p>
+		<a href="http://google.com" id ="search-link">Best SE Ever</a>
+
+	<script type="text/javascript">
+
+		var theHeading     = document.getElementById('heading-1');
+		var evenParagraphs = document.getElementsByClassName('even-paragraph');
+		var paragraphs     = document.getElementsByTagName('p');
+		var searchLink     = document.getElementById('search-link');
+
+		theHeading.innerHTML = 'Good Evening';
+
+		searchLink.attributes['href'].value = 'http://codeup.com/';
+		// ^^^ same thing as document.getElementById('search-link').attributes
+
+
+		for (i = 0; i < evenParagraphs.length; i++) {
+			evenParagraphs[i].style['font-size'] = '2em';
+			evenParagraphs[i].style['background-color'] = '#ddd';
+			evenParagraphs[i].innerHTML = 'Why, hello there, chap!';
+		}
+
+		for (i = 0; i < paragraphs.length; i++) {
+			paragraphs[i].style['font-size'] = '2em';
+		}
+
+	</script>
+
+</body>
+</html>

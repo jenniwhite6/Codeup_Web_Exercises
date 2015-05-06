@@ -9,7 +9,6 @@
     <h2 id="message">This BOM will self-destruct in <span id="timer">__</span> seconds...</h2>
 
     <button id="defuser">Defuse the BOM</button>
-
     <button id="refuser">RE-fuse the BOM</button>
 
     <script>
@@ -17,15 +16,27 @@
         "use strict";
 
         var detonationTimer = 10;
+        var clickCounter = 0;
         var countDown;
         var bodyElement = document.getElementsByTagName('body')[0];
+        var defuser = document.getElementById('defuser');
+        var refuser = document.getElementById('refuser');
 
+        var getRandomInt = function(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+            }
+        console.log(getRandomInt(0,500));
+        var moveButton = function () {
+            defuser.style['left'] = getRandomInt(0,500) + 'px';
+            defuser.style['top'] = getRandomInt(0,500) + 'px';
+
+            }
 
         function updateTimer() {
 
             if (detonationTimer == 0) {
+                bodyElement.style['background-image'] = 'url(/img/explosion.jpg)';
                 document.body.innerHTML = '';
-                bodyElement.style['background-image'] = 'url(/img/death-star.jpg)';
                 alert('EXTERMINATE!');
             } else if (detonationTimer > 0) {
                 document.getElementById('timer').innerHTML = detonationTimer;
@@ -34,18 +45,23 @@
             detonationTimer--;
         };
 
-        countDown = setInterval(updateTimer, 1000);
+        function defuseTheBOM() {
+            if (clickCounter < 3) {
+                moveButton();
+                clickCounter++;
 
-        function defuseTheBOM()
-        {
-            clearInterval(countDown);
+            } else {
+                document.getElementById('message').innerHTML = 'You defused the BOM - now YOU da BOM!';
+                defuser.style['left'] = '0px';
+                defuser.style['top'] = '0px';
+                clearInterval(countDown);
+            }
         };
 
-        var defuser = document.getElementById('defuser');
-            defuser.addEventListener('click', defuseTheBOM, false);
+        countDown = setInterval(updateTimer, 1000);
 
-        var refuser = document.getElementById('refuser');
-            refuser.addEventListener('click', updateTimer, false);
+        defuser.addEventListener('click', defuseTheBOM);
+        refuser.addEventListener('click', updateTimer);
 
     </script>
 </body>
