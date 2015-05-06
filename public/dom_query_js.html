@@ -1,22 +1,43 @@
+<!DOCTYPE html>
 <html>
 <head>
     <title>DOM: Query and Modify</title>
 </head>
 <body>
     <style>
-        * {
+        body {
             margin-left: 50px;
         }
 
         p {
-            margin: 50px;
-            background-color: #eee;
+            margin-right: 50px;
+            color: rgb(136, 168, 214);
+            background-color: #323131;
             padding: 20px;
+        }
+
+        li {
+            font-size: 18px;
         }
 
         #main-header {
             margin-top: 60px;
         }
+
+        #button-wrap {
+            margin-top: 20px;
+        }
+
+        button {
+            padding: 20px 25px;
+            border-style: none;
+            border-radius: 10px;
+            color: rgb(217, 252, 255);
+            background-color: #888;
+            font-size: 18px;
+            margin-right: 16px;
+        }
+
     </style>
 
     <h1 id="main-header">Hello World!</h1>
@@ -41,30 +62,70 @@
         Completely synergize resource sucking relationships via premier niche markets. Professionally cultivate one-to-one customer service with robust ideas. Dynamically innovate resource-leveling customer service for state of the art customer service. 
     </p>
 
+    <div id="button-wrap">
+        <button id="main-btn">Change the main header</button>
+        <button id="subheader-btn">Modify the subheader</button>
+        <button id="list-btn">Colorify the list items</button>
+        <button id="mission-btn">MISSION ACCOMPLISHED!</button>
+    </div>
+
     <script>
 
-
-        var mainHeader = document.getElementById('main-header');
+        var changeMainHeader = function() {
+            var mainHeader = document.getElementById('main-header');
             mainHeader.innerHTML = 'JavaScript is Cool';
 
-        var subHeader = document.getElementById('sub-header');
+            var mainButton = document.getElementById('main-btn');
+            mainButton.style['background-color'] ='rgb(207, 37, 76)';
+        };
+
+        var changeSubHeader = function() {
+            var subHeader = document.getElementById('sub-header');
             subHeader.style['color'] = 'blue';
 
-        var listItems = document.getElementsByTagName('li');
+            var subheaderButton = document.getElementById('subheader-btn');
+            subheaderButton.style['background-color'] ='rgb(207, 37, 76)';
+        };
 
-        for (i = 0; i < listItems.length; i++) {
-            var dbId = listItems[i].attributes['data-dbid'].value;
+        var changeListItems = function() {
+
+            var listItems = document.getElementsByTagName('li');
+
+            for (i = 0; i < listItems.length; i++) {
+                
+                var dbId = listItems[i].attributes['data-dbid'].value;
+                
                 if (dbId == 1) {
                     listItems[i].style['color'] = 'blue';
                 } else if (dbId % 2 == 0) {
                     listItems[i].style['color'] = 'grey';
                 }
-        }
+            }
 
-        var subParagraphs = document.getElementsByClassName('sub-paragraph');
+            var listButton = document.getElementById('list-btn');
+            listButton.style['background-color'] ='rgb(207, 37, 76)';
+        };
+
+        var changeSubParagraphs = function() {
+
+            var subParagraphs = document.getElementsByClassName('sub-paragraph');
+            
             for (i = 0; i < subParagraphs.length; i++) {
                 subParagraphs[i].innerHTML = 'Mission Accomplished!';
+                subParagraphs[i].style['background-color'] = 'rgb(101, 101, 224)';
+                subParagraphs[i].style['color'] = 'white';
+                subParagraphs[i].style['font-size'] = '24px';
             }
+
+            var missionButton = document.getElementById('mission-btn');
+            missionButton.style['background-color'] ='rgb(207, 37, 76)';
+        };
+
+        // register the listener to buttons --> make changes and re-color buttons
+        document.getElementById('main-btn').addEventListener('click', changeMainHeader);
+        document.getElementById('subheader-btn').addEventListener('click', changeSubHeader);
+        document.getElementById('list-btn').addEventListener('click', changeListItems);
+        document.getElementById('mission-btn').addEventListener('click', changeSubParagraphs);
 
     </script>
 

@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Defuse the BOM</title>
     <link rel="stylesheet" type="text/css" href="/css/normalize.css">
     <link rel="stylesheet" type="text/css" href="/css/defuse_the_bom.css">
 </head>
+
 <body>
     <h2 id="message">This BOM will self-destruct in <span id="timer">__</span> seconds...</h2>
 
@@ -16,11 +18,12 @@
         "use strict";
 
         var detonationTimer = 10;
-        var clickCounter = 0;
+        var clickCounter = 1;
         var countDown;
         var bodyElement = document.getElementsByTagName('body')[0];
         var defuser = document.getElementById('defuser');
         var refuser = document.getElementById('refuser');
+        var message = document.getElementById('message');
 
         var getRandomInt = function(min, max) {
             return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -51,9 +54,12 @@
                 clickCounter++;
 
             } else {
-                document.getElementById('message').innerHTML = 'You defused the BOM - now YOU da BOM!';
+                message.innerHTML = 'You defused the BOM - now YOU da BOM!';
+                message.style['color'] = 'blue';
                 defuser.style['left'] = '0px';
                 defuser.style['top'] = '0px';
+                bodyElement.style['image'] = 'url(/img/you-da-bomb.jpg)';
+
                 clearInterval(countDown);
             }
         };
