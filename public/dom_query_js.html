@@ -75,16 +75,16 @@
             var mainHeader = document.getElementById('main-header');
             mainHeader.innerHTML = 'JavaScript is Cool';
 
-            var mainButton = document.getElementById('main-btn');
-            mainButton.style['background-color'] ='rgb(207, 37, 76)';
+            this.style['background-color'] ='rgb(207, 37, 76)';
+            this.innerHTML = 'Rad!';
         };
 
         var changeSubHeader = function() {
             var subHeader = document.getElementById('sub-header');
             subHeader.style['color'] = 'blue';
 
-            var subheaderButton = document.getElementById('subheader-btn');
-            subheaderButton.style['background-color'] ='rgb(207, 37, 76)';
+            this.style['background-color'] ='rgb(207, 37, 76)';
+            this.innerHTML = 'Awesome.';
         };
 
         var changeListItems = function() {
@@ -102,8 +102,8 @@
                 }
             }
 
-            var listButton = document.getElementById('list-btn');
-            listButton.style['background-color'] ='rgb(207, 37, 76)';
+            this.style['background-color'] ='rgb(207, 37, 76)';
+            this.innerHTML = 'Totally tubular!';
         };
 
         var changeSubParagraphs = function() {
@@ -117,8 +117,8 @@
                 subParagraphs[i].style['font-size'] = '24px';
             }
 
-            var missionButton = document.getElementById('mission-btn');
-            missionButton.style['background-color'] ='rgb(207, 37, 76)';
+            this.style['background-color'] ='rgb(207, 37, 76)';
+            this.innerHTML = 'Rockin it.';
         };
 
         // register the listener to buttons --> make style changes + re-color buttons

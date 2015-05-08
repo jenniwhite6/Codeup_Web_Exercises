@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>C-C-C-CODE</title>
+</head>
+<body id='game'>
+    <h1 id='success'>Enter the code, if you dare</h1>
+
+    <script>
+
+        "use strict";
+        var key;
+        var counter = 0;
+        var konami = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65, 13];
+        var input = [];
+        var success = document.getElementById('success');
+        var body = document.getElementById('game');
+
+        var listener = function(e) {
+            
+            key = e.keyCode;
+
+            if (key == konami[counter]) {
+                console.log('correct');
+                input.push(key);
+            }    
+
+            if (input.length == konami.length && konami.toString() == input.toString()) {
+                alert('Konami hoo ha ha - 30 more lives for you!!!');
+                success.innerHTML = 'Hurrah!';
+                success.style['color'] = 'white';
+                body.style['background-color'] = 'black';
+            }
+
+            counter++;
+        }
+
+        body.addEventListener('keyup', listener, false);
+
+    </script>
+
+</body>
+</html>
