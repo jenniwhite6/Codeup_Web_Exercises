@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Calculate all the things</title>
+	<link rel="stylesheet" href="/css/normalize.css">
+	<link rel="stylesheet" href="/css/grid.css">
+	<link rel="stylesheet" href="/css/calculator.css">
+</head>
+
+<body id='calculator'>
+	<div class='wrap'>
+<!-- 		<div class='shadow'></div>
+ -->		<div class='container'>
+			<div class='row-0'>
+				<input id='input-left' class='column two-fifths'></input>
+				<input id='input-center' type='text' maxlength='1' class='column one-fifth'></input>
+				<input id='input-right' class='column two-fifths'></input>
+			</div>	
+		</div>
+		<div class='container'>
+			<div class='row-1'>
+				<button id='clear' class='column one-half'>C</button>
+				<button id='stars' class ='column one-fourth'>&#9733;</button>
+				<button id='multiply' class='operator column one-fourth'>*</button>
+			</div>	
+		</div>
+		<div class='container'>
+			<div class='row-2'>
+				<button id='one' class='number column one-fourth'>1</button>
+				<button id='two' class='number column one-fourth'>2</button>
+				<button id='three' class='number column one-fourth'>3</button>
+				<button id='divide' class='operator column one-fourth'>/</button>
+			</div>
+		</div>
+		<div class='container'>
+			<div class='row-3'>
+				<button id='four' class='number column one-fourth'>4</button>
+				<button id='five' class='number column one-fourth'>5</button>
+				<button id='six' class='number column one-fourth'>6</button>
+				<button id='add' class='operator column one-fourth'>+</button>
+			</div>
+		</div>
+		<div class='container'>
+			<div class='row-4'>
+				<button id='seven' class='number column one-fourth'>7</button>
+				<button id='eight' class='number column one-fourth'>8</button>
+				<button id='nine' class='number column one-fourth'>9</button>
+				<button id='subtract' class='operator column one-fourth'>-</button>
+			</div>
+		</div>
+
+		<div class='container'>
+			<div class='row-5'>
+				<button id='zero' class='number column one-half'>0</button>
+				<button id='decimal' class='decimal column one-fourth'>.</button>
+				<button id='equals' class='column one-fourth'>=</button>	
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript">
+		"use strict"
+
+		// VARIABLES
+
+		var body = document.getElementById('calculator');
+
+		var inputLeft = document.getElementById('input-left');
+		var inputCenter = document.getElementById('input-center');
+		var inputRight = document.getElementById('input-right');
+
+		var numbers = document.getElementsByClassName('number');
+		var operators = document.getElementsByClassName('operator');
+
+		var stars = document.getElementById('stars');
+		var clear = document.getElementById('clear');
+
+		// FUNCTIONS
+
+		var firstNumberInputLeft = function() {
+			inputLeft.value += this.innerHTML;
+		}
+
+		var secondNumberInputRight = function() {
+			inputRight.value += this.innerHTML;
+		}
+
+		var operatorInputCenter = function() {
+			inputCenter.value = this.innerHTML;
+
+			for (i = 0; i < numbers.length; i++) {
+				numbers[i].removeEventListener('click', firstNumberInputLeft);
+				numbers[i].addEventListener('click', secondNumberInputRight);
+			}
+		}
+
+		var clearInput = function() {
+			inputLeft.value = '';
+			inputCenter.value = '';
+			inputRight.value = '';
+			body.setAttribute('class','body');
+			for (i = 0; i < numbers.length; i++) {
+				numbers[i].addEventListener('click', firstNumberInputLeft);
+				numbers[i].removeEventListener('click', secondNumberInputRight);
+			}
+		}
+
+		var getResult = function() {
+			eval(inputLeft.value + inputCenter.value + inputRight.value);
+			// + symbols act like parseInt (turn strings into numbers)
+			var result = eval(+inputLeft.value + inputCenter.value + +inputRight.value);	
+			inputLeft.value = result;
+			inputCenter.value = '';
+			inputRight.value = '';
+			
+			console.log(result);
+		}
+
+		var allTheStars = function() {
+			body.setAttribute('class', 'stars-background');
+		}
+
+		// EVENT LISTENERS - executing functions when specified buttons are clicked
+
+		stars.addEventListener('click', allTheStars);
+		clear.addEventListener('click', clearInput);
+		equals.addEventListener('click', getResult);
+ 
+		for (var i = 0; i < numbers.length; i++) {
+			numbers[i].addEventListener('click', firstNumberInputLeft);
+		}
+
+		for(var i = 0; i < operators.length; i++) {
+			operators[i].addEventListener('click', operatorInputCenter);
+		}
+	</script>
+</body>
+</html>
+

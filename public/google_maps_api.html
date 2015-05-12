@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Google Maps</title>
+	<style type='text/css'>
+		#map-canvas {
+			width: 1150px;
+			height: 500px;
+			margin: auto;
+		}
+
+		body {
+			background-color: #4A4E69;
+		}
+		h1 {
+			margin: auto;
+		}
+
+		h1.title {	
+			color: #F2E9E4;
+			text-align: center;
+			font-family: Arial;
+		}
+		.header {
+			margin: 50px auto;
+		}
+
+	</style>
+	<link rel="shortcut icon" href="/img/tinytaco.ico" type="image/x-icon">
+	<link rel="icon" href="/img/tinytaco.ico" type="image/x-icon">
+
+	<link rel="stylesheet" href="/css/grid.css">
+</head>
+<body>
+	<div class='header'>
+		<h1 class="title">These restaurants are the bomb-diggity.</h1>
+	</div>
+
+	<div id='map-canvas'></div>
+
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAqOb06a0ZTlel_UNWVOmaSx-uCmvvsupY">
+  	</script>
+
+  	<script type="text/javascript">
+
+  	"use strict"
+
+    var geocoder = new google.maps.Geocoder();
+
+    var addressData = {
+    	address: '521 E Woodlawn Ave'
+    };
+
+    geocoder.geocode(addressData, function(results, status) {
+    	console.log('Results:');
+    	console.log(results);
+
+    	console.log('Status:');
+    	console.log(status);
+
+    	if (status == google.maps.GeocoderStatus.OK){
+
+    		var taco = '/img/taco.png';
+
+    		var styles = [ 
+    			{
+	    			"featureType": "landscape",
+					"stylers": [
+					    { "color": "#4A4E69" }
+					]
+				},{
+					"featureType": "road.highway",
+					"stylers": [
+						{ "color": "#C9ADA7" }
+					]
+				},{
+					"featureType": "water",
+					"stylers": [
+						{"color":"#F2E9E4"}
+					]
+				}
+			]
+    		
+    		var milagrito = {lat: 29.452672,lng: -98.485089};
+
+    		var mapOptions = {
+	    		zoom: 14,
+	    		center: milagrito,
+    		}
+
+    	   	var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+
+		    var marker = new google.maps.Marker({
+		      position: milagrito,
+		      map: map,
+		      animation: google.maps.Animation.DROP,
+		      icon: taco,
+		      draggable: true
+    		});
+
+    		var infowindow = new google.maps.InfoWindow({
+        		content: '<h1>Tacooooooos!</h1>El Milagrito</br>Your friendly neighboorhood taquería'
+    		});
+
+    		infowindow.open(map, marker);
+
+    		map = map.setOptions({styles: styles});
+
+    	} else {
+    		alert('Uh oh!!!');
+    	}
+
+    });
+
+  </script>
+
+</body>
+</html>

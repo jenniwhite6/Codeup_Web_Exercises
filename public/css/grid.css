@@ -41,6 +41,9 @@ html {
 .one-sixth {
     width: 16.66%;
 }
+.one-fifth {
+    width: 20%;
+}
 .one-fourth {
     width: 25%;
 }
@@ -49,6 +52,9 @@ html {
 }
 .three-eighths {
 	width: 37.5%;
+}
+.two-fifths {
+    width: 40%;
 }
 .one-half {
     width: 50%;
