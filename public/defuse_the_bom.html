@@ -13,6 +13,7 @@
     <button id="defuser">Defuse the BOM</button>
     <button id="refuser">RE-fuse the BOM</button>
 
+    <script type="text/javascript" src="/js/jquery.js"></script>
     <script>
 
         "use strict";
@@ -20,45 +21,54 @@
         var detonationTimer = 10;
         var clickCounter = 1;
         var countDown;
-        var bodyElement = document.getElementsByTagName('body')[0];
-        var defuser = document.getElementById('defuser');
-        var refuser = document.getElementById('refuser');
-        var message = document.getElementById('message');
+        var bodyElement = $('body');
+        var defuser = $('#defuser');
+        var refuser = $('#refuser'); 
+        var message = $('#message');
+        var numSeconds = $('#timer');
 
         var getRandomInt = function(min, max) {
             return Math.floor(Math.random() * (max - min + 1)) + min;
             }
         console.log(getRandomInt(0,500));
-        var moveButton = function () {
-            defuser.style['left'] = getRandomInt(0,500) + 'px';
-            defuser.style['top'] = getRandomInt(0,500) + 'px';
 
+        var moveButton = function () {
+            defuser
+                .css('left', getRandomInt(0,500) + 'px')
+                .css('top', getRandomInt(0,500) + 'px');
             }
 
         function updateTimer() {
 
             if (detonationTimer == 0) {
-                bodyElement.style['background-image'] = 'url(/img/explosion.jpg)';
-                document.body.innerHTML = '';
+                bodyElement
+                    .css('background-image', 'url(/img/explosion.jpg)')
+                    .css('background-size', 'cover')
+                    .css('background-repeat', 'no-repeat')
+                    .html('');
                 alert('EXTERMINATE!');
             } else if (detonationTimer > 0) {
-                document.getElementById('timer').innerHTML = detonationTimer;
+                numSeconds.html(detonationTimer); 
             }
 
             detonationTimer--;
         };
 
         function defuseTheBOM() {
-            if (clickCounter < 3) {
+
+            if (clickCounter < 5) {
                 moveButton();
                 clickCounter++;
 
             } else {
-                message.innerHTML = 'You defused the BOM - now YOU da BOM!';
-                message.style['color'] = 'blue';
-                defuser.style['left'] = '0px';
-                defuser.style['top'] = '0px';
-                bodyElement.style['image'] = 'url(/img/you-da-bomb.jpg)';
+                message
+                    .html('You defused the BOM - now YOU da BOM!')
+                    .css('color', 'blue');
+                defuser
+                    .css('left','0px')
+                    .css('top', '0px');
+                bodyElement
+                    .css('image', 'url(/img/you-da-bomb.jpg)');
 
                 clearInterval(countDown);
             }
@@ -66,8 +76,8 @@
 
         countDown = setInterval(updateTimer, 1000);
 
-        defuser.addEventListener('click', defuseTheBOM);
-        refuser.addEventListener('click', updateTimer);
+        defuser.click(defuseTheBOM);
+        refuser.click(updateTimer);  
 
     </script>
 </body>

@@ -4,26 +4,7 @@
 	<title>jQuery Exercises</title>
 	<style type="text/css">
 		h1 {
-			color: red;
-		}
-
-		button {
-			border-style: none;
-			background-color: black;
-			color: white;
-		}
-
-		.blue {
-			color: blue;
-		}
-
-		.huge {
-			font-size: 24px;
-			margin: 0;
-		}
-
-		.highlight {
-			background-color: yellow;
+			color: #565676;
 		}
 
 	</style>
@@ -37,7 +18,6 @@
 			<li id='spanish' class='greet'>¡Buenos días!</li>
 			<li id='french' class='greet'>Bonjour :)</li>
 		</ul>
-		<button>Alright, but what's actually important?</button>	
 	</div>
 
 	<script src="/js/jquery.js"></script>
@@ -50,14 +30,15 @@
 		// ensures that html is loaded BEFORE the scripts are executed
 		$(document).ready(function() {
 	    	
-	    	$('.greet').css('border','1px solid red');
-	    	$('#english').css('border','none');
+	    	$('li').css('font-size','20px');
+	    	$('p, h1, li')
+	    		.css('background-color', '#AEADF0')
+	    		.css('color', '#565676');
 
-	    	$('button').click(function() {
-	    		$('.important')
-	    			.toggleClass('highlight')
-	    			.toggleClass('huge');
-	    		$('button').html('Back to normal, please');
+	    	$('li').hover(function() {
+	    		$(this).css('color', 'blue');
+	    	}, function() {
+	    		$(this).css('color','#565676');
 	    	});
 		});
 
