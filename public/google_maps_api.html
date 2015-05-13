@@ -33,7 +33,7 @@
 </head>
 <body>
 	<div class='header'>
-		<h1 class="title">These restaurants are the bomb-diggity.</h1>
+		<h1 class='title'>These restaurants are the bomb-diggity.</h1>
 	</div>
 
 	<div id='map-canvas'></div>
@@ -42,75 +42,110 @@
   	</script>
 
   	<script type="text/javascript">
-
   	"use strict"
 
-    var geocoder = new google.maps.Geocoder();
+    	var geocoder = new google.maps.Geocoder();
 
-    var addressData = {
-    	address: '521 E Woodlawn Ave'
-    };
+	    var taco = '/img/taco.png';
 
-    geocoder.geocode(addressData, function(results, status) {
-    	console.log('Results:');
-    	console.log(results);
+	    var styles = [ 
+			{
+				"featureType": "landscape",
+				"stylers": [
+				    { "color": "#4A4E69" }
+				]
+			},{
+				"featureType": "road.highway",
+				"stylers": [
+					{ "color": "#C9ADA7" }
+				]
+			},{
+				"featureType": "water",
+				"stylers": [
+					{"color":"#F2E9E4"}
+				]
+			}
+		]
 
-    	console.log('Status:');
-    	console.log(status);
+	    var milagrito = {
+	    	'address': '521 E Woodlawn Ave, San Antonio, TX 78212',
+	    	'lat': 29.452672,
+	    	'lng': -98.485089,
+	    	'zindex': 1
+	    }
 
-    	if (status == google.maps.GeocoderStatus.OK){
+		var tribeca = {
+			'address': '4331 McCullough Ave, Olmos Park, TX 78212',
+	    	'lat': 29.471744,
+	    	'lng': -98.491994,
+	    	'zindex': 2
+		}	
 
-    		var taco = '/img/taco.png';
+		var silo = {
+			'address': '1133 Austin Hwy, San Antonio, TX 78209',
+	    	'lat': 29.487543,
+	    	'lng': -98.447946,
+	    	'zindex': 3
+		}
 
-    		var styles = [ 
-    			{
-	    			"featureType": "landscape",
-					"stylers": [
-					    { "color": "#4A4E69" }
-					]
-				},{
-					"featureType": "road.highway",
-					"stylers": [
-						{ "color": "#C9ADA7" }
-					]
-				},{
-					"featureType": "water",
-					"stylers": [
-						{"color":"#F2E9E4"}
-					]
-				}
-			]
-    		
-    		var milagrito = {lat: 29.452672,lng: -98.485089};
+		var restaurants = [milagrito, tribeca, silo];
 
-    		var mapOptions = {
-	    		zoom: 14,
-	    		center: milagrito,
+		var mapOptions = {
+    		zoom: 10,
+    		center: { 
+    			'lat': restaurants[1].lat, 
+    			'lng': restaurants[1].lng 
+    		}
+		}
+
+		var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+
+		for (var i = 0; i < restaurants.length; i++) {
+
+			geocoder.geocode( {'address': restaurants[i].address}, function(results, status) {
+		    	console.log('Results:');
+		    	console.log(results);
+
+		    	console.log('Status:');
+		    	console.log(status);
+			});
+		}
+
+	    function loadMap() {
+
+			// if (status == google.maps.GeocoderStatus.OK){
+				setMarkers(map, restaurants);
+				map = map.setOptions({styles: styles});
+			// } else {
+   //  			alert('Uh oh!!!');
+   //  		}
+	    }
+
+		function setMarkers(map, locations) {
+
+			for (var i = 0; i < locations.length; i++) {
+    			var restaurant = locations[i];
+    			var myLatLng = new google.maps.LatLng({
+    				'lat': restaurants[i].lat,
+    				'lng': restaurants[i].lng
+    			});	
+    			var marker = new google.maps.Marker({
+    				position: myLatLng,
+    				map: map,
+    				icon: taco,
+    				animation: google.maps.Animation.DROP,
+    				draggable: true
+    			});
     		}
 
-    	   	var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+    		// var infowindow = new google.maps.InfoWindow({
+      //   		content: '<h1>Tacooooooos!</h1>El Milagrito</br>Your friendly neighboorhood taquería'
+    		// });
 
-		    var marker = new google.maps.Marker({
-		      position: milagrito,
-		      map: map,
-		      animation: google.maps.Animation.DROP,
-		      icon: taco,
-		      draggable: true
-    		});
+    		// infowindow.open(map, marker);
+		}		
 
-    		var infowindow = new google.maps.InfoWindow({
-        		content: '<h1>Tacooooooos!</h1>El Milagrito</br>Your friendly neighboorhood taquería'
-    		});
-
-    		infowindow.open(map, marker);
-
-    		map = map.setOptions({styles: styles});
-
-    	} else {
-    		alert('Uh oh!!!');
-    	}
-
-    });
+		google.maps.event.addDomListener(window, 'load', loadMap);
 
   </script>
 
