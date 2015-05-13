@@ -22,18 +22,22 @@
 			margin: 0;
 		}
 
+		.highlight {
+			background-color: yellow;
+		}
+
 	</style>
 </head>
 <body>
 	<h1>Hello there, jQuery!</h1>
 	<div id='container'>
-		<p id='ipsum'>Normcore authentic dreamcatcher four loko Etsy twee. Paleo tempor wolf, chia officia assumenda plaid meditation messenger bag. Bicycle rights put a bird on it photo booth, velit Echo Park keytar Etsy quis anim aute. Street art biodiesel pork belly, nisi church-key keytar Godard meh 90's small batch farm-to-table mixtape officia nesciunt. 90's elit irure McSweeney's, Etsy enim next level cupidatat wolf. Velit YOLO sapiente salvia, irony literally Tumblr. Meditation pop-up aliquip Carles paleo.</p>
+		<p id='ipsum'>Normcore authentic dreamcatcher four loko Etsy twee. Paleo tempor wolf, chia officia assumenda plaid meditation messenger bag. <span class='important'>Bicycle rights put a bird on it photo booth, velit Echo Park keytar Etsy quis anim aute.</span> Street art biodiesel pork belly, nisi church-key keytar Godard meh 90's small batch farm-to-table mixtape officia nesciunt. 90's elit irure McSweeney's, Etsy enim next level cupidatat wolf. Velit YOLO sapiente salvia, irony literally Tumblr. Meditation pop-up aliquip Carles paleo.</p>
 		<ul>
 			<li id='english' class='greet'>Good day!</li>
 			<li id='spanish' class='greet'>¡Buenos días!</li>
 			<li id='french' class='greet'>Bonjour :)</li>
 		</ul>
-		<button>Tl;dr</button>	
+		<button>Alright, but what's actually important?</button>	
 	</div>
 
 	<script src="/js/jquery.js"></script>
@@ -45,13 +49,15 @@
 
 		// ensures that html is loaded BEFORE the scripts are executed
 		$(document).ready(function() {
+	    	
+	    	$('.greet').css('border','1px solid red');
+	    	$('#english').css('border','none');
 
 	    	$('button').click(function() {
-	    		$('#ipsum')
-		    		.html('Bicycle rights put a bird on it photo booth, velit Echo Park keytar Etsy quis anim aute.')
-		    		.toggleClass('huge');
-		    	$('.greet')
-		    		.toggleClass('blue');
+	    		$('.important')
+	    			.toggleClass('highlight')
+	    			.toggleClass('huge');
+	    		$('button').html('Back to normal, please');
 	    	});
 		});
 
