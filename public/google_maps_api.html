@@ -44,10 +44,6 @@
   	<script type="text/javascript">
   	"use strict"
 
-    	var geocoder = new google.maps.Geocoder();
-
-	    var taco = '/img/taco.png';
-
 	    var styles = [ 
 			{
 				"featureType": "landscape",
@@ -90,15 +86,7 @@
 
 		var restaurants = [milagrito, tribeca, silo];
 
-		var mapOptions = {
-    		zoom: 10,
-    		center: { 
-    			'lat': restaurants[1].lat, 
-    			'lng': restaurants[1].lng 
-    		}
-		}
-
-		var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+		var geocoder = new google.maps.Geocoder();
 
 		for (var i = 0; i < restaurants.length; i++) {
 
@@ -111,39 +99,54 @@
 			});
 		}
 
+		var map;
 	    function loadMap() {
 
-			// if (status == google.maps.GeocoderStatus.OK){
-				setMarkers(map, restaurants);
-				map = map.setOptions({styles: styles});
-			// } else {
-   //  			alert('Uh oh!!!');
-   //  		}
+			var mapOptions = {
+	    		zoom: 12,
+	    		center: { 
+	    			'lat': restaurants[0].lat, 
+	    			'lng': restaurants[0].lng 
+				}
+			}
+
+			map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+
+			map.setOptions({'styles': styles});
+			setMarkers(map, restaurants);
 	    }
 
 		function setMarkers(map, locations) {
 
 			for (var i = 0; i < locations.length; i++) {
+
     			var restaurant = locations[i];
-    			var myLatLng = new google.maps.LatLng({
-    				'lat': restaurants[i].lat,
-    				'lng': restaurants[i].lng
-    			});	
+
+    			var taco = {
+			    	url: '/img/taco.png',
+			    	size: new google.maps.Size(107,68),
+			    	origin: new google.maps.Point(0,0),
+			    	anchor: new google.maps.Point(0, 32)
+			    };
+
+			    var shape = {
+		      		coords: [1, 1, 1, 20, 18, 20, 18 , 1],
+		      		type: 'poly'
+		  		};
+
+    			var myLatLng = new google.maps.LatLng(restaurant.lat, restaurant.lng);	
+
+				// console.log(taco);
     			var marker = new google.maps.Marker({
     				position: myLatLng,
     				map: map,
     				icon: taco,
+    				shape: shape,
     				animation: google.maps.Animation.DROP,
-    				draggable: true
+    				draggable: true,
+    				zIndex: restaurant.zindex,
     			});
-    		}
-
-    		// var infowindow = new google.maps.InfoWindow({
-      //   		content: '<h1>Tacooooooos!</h1>El Milagrito</br>Your friendly neighboorhood taquería'
-    		// });
-
-    		// infowindow.open(map, marker);
-		}		
+    		}	
 
 		google.maps.event.addDomListener(window, 'load', loadMap);
 
