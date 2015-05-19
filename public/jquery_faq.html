@@ -126,8 +126,8 @@
 		    <h3>Carlsbad Caverns National Park</h3>
 		    <ul>
 		        <li>Is cavernous</li>
-		        <li>Is located in Carlsbad</li>
-		        <li>Lights out --> pitch black</li>
+		        <li>Is located in Carlsbad, NM</li>
+		        <li>Turns pitch black when the lights go out</li>
 		        <li>Acts as home to a whole bunch of bats</li>
 		    </ul>	    
 		</div>
@@ -140,16 +140,12 @@
 		$(document).ready(function() {
 
 			$('dt').click(function(e) {
-				$(this).next().toggle();
+				$(this).next().fadeToggle(500);
 				$(this).css('color','rgb(52, 124, 35)');
 			});
 
 			$('ul').each(function(index, element) {
 				$(element).children().first().css('font-weight', 'bold');
-			});
-
-			$('li').click(function(e) {
-				$(this).parent().hide();
 			});
 
 			$('h3').click(function(e) {
