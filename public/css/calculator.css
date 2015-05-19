@@ -8,23 +8,13 @@ body {
 }
 
 div.wrap {
-	width: 323px;
-	height: 410px;
+	width: 320px;
+	height: 405px;
 	margin: auto;
 	margin-top: 100px;
-	overflow: hidden;
-	background-color: rgba(0, 0, 0, 0.05);
+	box-shadow: 10px 10px 5px rgba(44, 44, 45, 0.41);
 }
 
-.shadow {
-	float: left;
-	width: 323px;
-	height: 410px;
-	margin: auto;
-	margin-top: -100px;
-	overflow: hidden;
-	background-color: rgba(0, 0, 0, 0.2);
-}
 
 div.container {
 	width: 320px;

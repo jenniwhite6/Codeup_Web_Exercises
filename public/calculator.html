@@ -9,8 +9,7 @@
 
 <body id='calculator'>
 	<div class='wrap'>
-<!-- 		<div class='shadow'></div>
- -->		<div class='container'>
+ 		<div class='container'>
 			<div class='row-0'>
 				<input id='input-left' class='column two-fifths'></input>
 				<input id='input-center' type='text' maxlength='1' class='column one-fifth'></input>
@@ -57,23 +56,23 @@
 			</div>
 		</div>
 	</div>
-
+	<script src="/js/jquery.js" type="text/javascript"></script>
 	<script type="text/javascript">
 		"use strict"
 
 		// VARIABLES
 
-		var body = document.getElementById('calculator');
+		var body = $('#calculator');
 
-		var inputLeft = document.getElementById('input-left');
-		var inputCenter = document.getElementById('input-center');
-		var inputRight = document.getElementById('input-right');
+		var inputLeft = $('#input-left');
+		var inputCenter = $('#input-center');
+		var inputRight = $('#input-right');
 
-		var numbers = document.getElementsByClassName('number');
-		var operators = document.getElementsByClassName('operator');
+		var numbers = $('.number');
+		var operators = $('.operator');
 
-		var stars = document.getElementById('stars');
-		var clear = document.getElementById('clear');
+		var stars = $('#stars');
+		var clear = $('#clear');
 
 		// FUNCTIONS
 
@@ -122,17 +121,21 @@
 
 		// EVENT LISTENERS - executing functions when specified buttons are clicked
 
-		stars.addEventListener('click', allTheStars);
-		clear.addEventListener('click', clearInput);
-		equals.addEventListener('click', getResult);
- 
-		for (var i = 0; i < numbers.length; i++) {
-			numbers[i].addEventListener('click', firstNumberInputLeft);
-		}
+		stars.click(allTheStars);
+		clear.click(clearInput);
+		equals.click(getResult);
 
-		for(var i = 0; i < operators.length; i++) {
-			operators[i].addEventListener('click', operatorInputCenter);
-		}
+		numbers.click(firstNumberInputLeft);
+ 
+		// for (var i = 0; i < numbers.length; i++) {
+		// 	numbers[i].addEventListener('click', firstNumberInputLeft);
+		// }
+
+		operators.click(operatorInputCenter);
+
+		// for(var i = 0; i < operators.length; i++) {
+		// 	operators[i].addEventListener('click', operatorInputCenter);
+		// }
 	</script>
 </body>
 </html>
