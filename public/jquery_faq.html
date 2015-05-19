@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>jQuery FAQ</title>
+	<meta charset='utf-8'>
+	<link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,700,300,100' rel='stylesheet' type='text/css'>
+</head>
+<body>
+	<style src='/css/normalize.css' type="text/css"></style>
+	<style type="text/css">
+		body {
+			background-image: url(/img/forest.jpg);
+			background-repeat: no-repeat;
+			background-attachment: fixed;
+			background-size: cover;
+		}	
+
+		dt, div, dd {
+			background-color: white;
+			padding: 20px;
+			border: 2px solid rgb(229, 228, 228);
+			border-bottom: 1px solid rgb(229, 228, 228);
+		}
+
+		#final-dt {
+			border-bottom: 2px solid rgb(229, 228, 228);
+		}
+
+		dd {
+			margin-left: 0;
+			color: rgb(189, 189, 165);
+		}
+
+		* {
+			font-family: 'Roboto Slab', serif;
+		}
+
+		h1 {
+			color: rgb(2, 31, 10);
+		}
+
+		dt {
+			color: gray;
+		}
+
+		dt:hover {
+			color: rgb(52, 124, 35);
+		}
+
+		dl {
+			background-color: white;
+		}
+
+		.wrap {
+			width: 400px;
+			margin: auto;
+			margin-top: 100px;
+			padding: 10px 30px;
+			background-color: rgba(255, 255, 255, 0.80);
+			border-radius: 10px;
+		}
+
+		.invisible {
+			display: none;
+		}
+
+	</style>
+	
+	<div class='wrap'>
+		<h1>National Parks are fab</h1>
+		
+		<dl>
+			<dt>How old is the National Park system?</dt>
+				<dd class='invisible'>President Woodrow Wilson signed an act creating the National Park Service in 1916. (Yellowstone was created before the act was signed, in 1872, thanks to Ulysses S. Grant. Great guy.)</dd>
+			<dt>Which National Park is the largest?</dt>
+				<dd class='invisible'>Wrangell-St. Elias National Park and Preserve, AK, at 13.2 million acres</dd>
+			<dt id='final-dt'>Which National Park is the smallest?</dt>
+				<dd class='invisible'>Thaddeus Kosciuszko National Memorial, PA, at 0.02 acres</dd>
+		</dl>
+
+		<h2>Some particularly nice parks</h2>
+
+		<div class='glacier'>
+		    <h3>Glacier National Park</h3>
+
+		    <ul>
+		        <li>Is glacial</li>
+		        <li>Contains over 1 million acres of land</li>
+		        <li>Boasts 68 animal species, <a href="http://www.nps.gov/glac/learn/news/fact-sheet.htm">from moose to mouse"</a></li>
+		        <li>Just turned 105 years old</li>
+		    </ul>
+		</div>
+
+		<div class='redwood'>
+		    <h3>Redwood National Park</h3>
+
+		    <ul>
+		        <li>Is redwood-y</li>
+		        <li>Is home to the largest tree on the planet</li>
+		        <li>Can be found close to Eureka</li>
+		        <li>Provided the scenery for Jurassic Park AND Star Wars</li>
+		    </ul>
+		</div>
+
+		<div class='carlsbad'>
+		    <h3>Carlsbad Caverns National Park</h3>
+		    <ul>
+		        <li>Is cavernous</li>
+		        <li>Is located in Carlsbad</li>
+		        <li>Lights out --> pitch black</li>
+		        <li>Acts as home to a whole bunch of bats</li>
+		    </ul>	    
+		</div>
+
+	</div>
+
+	<script src='/js/jquery.js' type='text/javascript'></script>
+	<script type='text/javascript'>
+
+		$(document).ready(function() {
+
+			$('dt').click(function(e) {
+				$(this).next().toggleClass('invisible')
+				$(this).css('color','rgb(52, 124, 35)');
+			});
+
+			$('ul').each(function(index, element) {
+				$(element).children().first().css('font-weight', 'bold');
+			});
+
+			$('li').click(function(e) {
+				$(this).parent().addClass('invisible');
+			});
+
+			$('h3').click(function(e) {
+				$(this).next().toggleClass('invisible');
+			});
+
+		});
+
+	</script>
+</body>
+</html>
