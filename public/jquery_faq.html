@@ -140,7 +140,7 @@
 		$(document).ready(function() {
 
 			$('dt').click(function(e) {
-				$(this).next().fadeToggle(500);
+				$(this).next().slideToggle(500);
 				$(this).css('color','rgb(52, 124, 35)');
 			});
 
@@ -149,7 +149,7 @@
 			});
 
 			$('h3').click(function(e) {
-				$(this).next().toggle();
+				$(this).next().slideToggle();
 			});
 
 			$('.park').hover(function() {
