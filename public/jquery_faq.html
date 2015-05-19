@@ -55,7 +55,7 @@
 			width: 400px;
 			margin: auto;
 			margin-top: 100px;
-			padding: 10px 30px;
+			padding: 10px 30px 30px 30px;
 			background-color: rgba(255, 255, 255, 0.80);
 			border-radius: 10px;
 		}
@@ -64,11 +64,32 @@
 			display: none;
 		}
 
+		p {
+			display: inline;
+			float: right;
+		}
+
+		.gray {
+			background-color: rgb(229, 229, 229);
+		}
+
+		.glacier-scene {
+			background-image: url(/img/glacier-park.jpg);
+		}
+
+		.redwood-scene {
+			background-image: url(/img/redwood-park.jpg);
+		}
+
+		.carlsbad-scene {
+			background-image: url(/img/carlsbad-park.jpg);
+		}
+
 	</style>
 	
 	<div class='wrap'>
 		<h1>National Parks are fab</h1>
-		
+
 		<dl>
 			<dt>How old is the National Park system?</dt>
 				<dd class='invisible'>President Woodrow Wilson signed an act creating the National Park Service in 1916. (Yellowstone was created before the act was signed, in 1872, thanks to Ulysses S. Grant. Great guy.)</dd>
@@ -78,9 +99,9 @@
 				<dd class='invisible'>Thaddeus Kosciuszko National Memorial, PA, at 0.02 acres</dd>
 		</dl>
 
-		<h2>Some particularly nice parks</h2>
+		<h2>Some particularly nice parks:</h2>
 
-		<div class='glacier'>
+		<div class='glacier park'>
 		    <h3>Glacier National Park</h3>
 
 		    <ul>
@@ -91,9 +112,8 @@
 		    </ul>
 		</div>
 
-		<div class='redwood'>
+		<div class='redwood park'>
 		    <h3>Redwood National Park</h3>
-
 		    <ul>
 		        <li>Is redwood-y</li>
 		        <li>Is home to the largest tree on the planet</li>
@@ -102,7 +122,7 @@
 		    </ul>
 		</div>
 
-		<div class='carlsbad'>
+		<div class='carlsbad park'>
 		    <h3>Carlsbad Caverns National Park</h3>
 		    <ul>
 		        <li>Is cavernous</li>
@@ -120,7 +140,7 @@
 		$(document).ready(function() {
 
 			$('dt').click(function(e) {
-				$(this).next().toggleClass('invisible')
+				$(this).next().toggle();
 				$(this).css('color','rgb(52, 124, 35)');
 			});
 
@@ -129,13 +149,28 @@
 			});
 
 			$('li').click(function(e) {
-				$(this).parent().addClass('invisible');
+				$(this).parent().hide();
 			});
 
 			$('h3').click(function(e) {
-				$(this).next().toggleClass('invisible');
+				$(this).next().toggle();
 			});
 
+			$('.park').hover(function() {
+				$(this).toggleClass('gray');
+			});
+
+			$('.glacier').hover(function() {
+				$('body').toggleClass('glacier-scene');
+			});
+
+			$('.redwood').hover(function() {
+				$('body').toggleClass('redwood-scene');
+			});
+
+			$('.carlsbad').hover(function() {
+				$('body').toggleClass('carlsbad-scene');
+			});
 		});
 
 	</script>
