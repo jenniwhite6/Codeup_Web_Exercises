@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Animate</title>
+    <style>
+        html, body {
+            margin: 0px;
+            padding: 0;
+        }
+
+        body {
+            background-image: url(/img/caterpillar-food.jpg);
+            background-size: cover;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+        }
+
+        .caterpillar {
+            height: 100px;
+            margin: 0;
+            position: absolute;
+            left: -90px;
+            top: 320px;
+        }
+
+        #buttons {
+            position: absolute;
+            top: 40px;
+            right: 5%;
+            text-align: center;
+        }
+
+        button {
+            font-family: Times;
+            font-weight: bold;
+            font-size: 20px;
+            background-color: rgba(0,0,0,0.0);
+            border-style: none;
+            color: rgb(236, 32, 78);
+        }
+
+        button:hover {
+            color: rgb(32, 200, 91);
+        }
+
+    </style>
+</head>
+<body>
+
+    <img src='/img/caterpillar.gif' class='caterpillar'>
+
+    <!-- <div id='cake'></div>
+    <div id='ice-cream'></div>
+    <div id='pickle'></div>
+    <div id='cheese'></div>
+    <div id='salami'></div> -->
+
+    <div id='buttons'>
+        <button id='btn-move'>(m)ove</button>
+        <button id='btn-scale-down'>(s)cale</button>
+        <button id='btn-disappear'>(d)isappear</button>
+        <button id='btn-show'>(r)eappear</button>
+        <button id='btn-all'>(a)nimate</button>
+    </div>
+
+    <script src='/js/jquery.js'></script>
+    <script>
+
+        (function(){
+
+            'use strict';
+
+            var move = function() {
+                $('.caterpillar').animate({left: '+=100'}, 1000);
+            }
+
+            var scale = function() {
+                $('.caterpillar').animate({
+                    width: '+=50%',
+                    height: '+=20%',
+                }, 1000);
+            }
+
+            var disappear = function() {
+                $('.caterpillar').animate({opacity: '0'}, 1000);
+            }
+
+            var reappear = function() {
+                $('.caterpillar').animate({opacity: '1'}, 1000);
+            }
+
+            var animate = function() {
+                move();
+                scale();
+                disappear();
+                reappear();
+            }
+
+            $('#btn-move').click(move);
+
+            $('#btn-scale-down').click(scale);
+
+            $('#btn-disappear').click(disappear);
+
+            $('#btn-show').click(reappear);
+
+            $('#btn-all').click(animate);
+
+            $(document).keydown(function(e) {
+                switch (e.which) {
+
+                    // 'm' key
+                    case 77: 
+                        move();
+                    break;
+
+                    // 's' key
+                    case 83: 
+                        scale();
+                    break;
+
+                    // 'd' key
+                    case 68: 
+                        disappear();
+                    break;
+
+                    // 'r' key
+                    case 82: 
+                        reappear();  
+                    break;
+
+                    // 'a' key
+                    case 65: 
+                        animate();
+                    break;
+                }
+                console.log(e.which);
+            });
+
+        })();
+    
+    </script>
+</body>
+</html>
