@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Writing Objects</title>
+</head>
+<body>
+
+<script>
+
+(function(){
+
+'use strict';
+// "Object literals" approach
+var game = {
+	level: 1;
+	score: 0;
+	divs: $('#container').children(),
+	init: function() {
+		// calls other functions
+		// use this.level
+		// if we change values, downstream functions are affected
+		// OR use game.level, so that it doesn't affect event listeners
+	},
+	otherFunction: function() {
+		// code here
+	}
+};
+
+// "Object constructor" - same exact thing, different syntax
+var game = {};
+game.level = 1;
+game.score = 0;
+game.divs = $('#container').children(),
+game.init = function() {
+
+}
+
+// variables are properties within an object
+// methods are functions within an object
+
+})();
+
+</script>
+
+</body>
+</html>
