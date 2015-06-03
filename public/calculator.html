@@ -87,7 +87,7 @@
 		var operatorInputCenter = function() {
 			inputCenter.value = this.innerHTML;
 
-			for (i = 0; i < numbers.length; i++) {
+			for (var i = 0; i < numbers.length; i++) {
 				numbers[i].removeEventListener('click', firstNumberInputLeft);
 				numbers[i].addEventListener('click', secondNumberInputRight);
 			}
@@ -97,8 +97,8 @@
 			inputLeft.value = '';
 			inputCenter.value = '';
 			inputRight.value = '';
-			body.setAttribute('class','body');
-			for (i = 0; i < numbers.length; i++) {
+			$('body').removeClass('stars-background');
+			for (var i = 0; i < numbers.length; i++) {
 				numbers[i].addEventListener('click', firstNumberInputLeft);
 				numbers[i].removeEventListener('click', secondNumberInputRight);
 			}
@@ -116,7 +116,7 @@
 		}
 
 		var allTheStars = function() {
-			body.setAttribute('class', 'stars-background');
+			$('body').addClass('stars-background');
 		}
 
 		// EVENT LISTENERS - executing functions when specified buttons are clicked

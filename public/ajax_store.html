@@ -40,7 +40,7 @@
                 htmlString += '<tr>';
                 htmlString += '<td>' + product.title + '</td>';
                 htmlString += '<td>' + product.quantity + '</td>';
-                htmlString += '<td>' + product.categories + '</td>';
+                htmlString += '<td>' + product.categories.join(', ') + '</td>';
                 htmlString += '<td>' + product.price + '</td>';
                 htmlString += '</tr>';
             });
