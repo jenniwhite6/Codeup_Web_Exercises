@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>WEATHER? I hardly know her...</title>
+	<meta charset='utf-8'>
+	<link rel='stylesheet' href='/css/normalize.css'>
+	<link rel='stylesheet' href='/css/grid.css'>
+	<link rel='stylesheet' href='/css/weather_map.css'>
+</head>
+<body>
+
+	<div class='container'>
+
+		<h1 id='location'class='info inline' >Weather in:</h1>
+		<h1 id='city' class='inline'></h1>
+		
+		<form id='search-form'>
+			<input id='search' name='search' type='text' placeholder='Type city name here!'>
+			<input id='submit' type='submit' value='&#10140;'>
+		</form>
+
+		<div id='day'>
+			<div class='row'></div>
+		</div>
+
+	</div>
+
+	<script src='/js/jquery.js'></script>
+	<script src='/js/moment.js'></script>
+	<script>
+
+		var cityName = 'San Antonio';
+		console.log(cityName);
+
+		$('#search-form').submit(function(e){
+			e.preventDefault();
+			console.log(cityName);
+			gimmeTheWeather(cityName);
+			cityName = $('#search').val();
+			console.log(cityName);
+		});
+
+		var gimmeTheWeather = function() {
+
+			var getWeather = $.get("http://api.openweathermap.org/data/2.5/forecast/daily", {
+		    APPID: "467fce2fbe4d967cacd8c8886374905a",
+		    q: cityName,
+	    	cnt: 3,
+		    units: "imperial"
+			});
+
+			getWeather.done(function(data) {
+
+				console.log(data);
+				
+				var newHtml = '';
+				
+				data.list.forEach(function(day) {
+
+					console.log(day);
+
+					var iconURL = 'http://openweathermap.org/img/w/' + day.weather[0].icon + '.png';
+
+					newHtml += "<div class='column'>";
+						newHtml += "<h2 class='info'>" + moment.unix(day.dt).format('MMM D, YYYY') + "</h2>";
+						newHtml += "<img id='weather-icon' src='" + iconURL + "'>";
+						newHtml += "<h2 class='high-low'>" + 'High / Low: ' +  Math.round(day.temp.max) + ' / ' + Math.round(day.temp.min) + "</h2>";
+						newHtml += "<h3 class='clouds'>" + 'Clouds: ' + day.clouds + "</h3>";
+						newHtml += "<h3 class='humidity'>" + 'Humidity: ' + day.humidity + "</h3>";
+						newHtml += "<h3 class='wind'>" + 'Wind: ' + day.speed + "</h3>";
+						newHtml += "<h3 class='pressure'>" + 'Pressure: ' + Math.round(day.pressure) + "</h3>";
+					newHtml += "</div>";
+
+					$('#day').html(newHtml);
+				});
+
+				$('#city').html(cityName);
+			});
+		};
+
+	</script>
+
+</body>
+</html>
