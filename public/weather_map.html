@@ -28,6 +28,8 @@
 
 	<script>
 
+	"use strict";
+
 		var cityName = 'San Antonio';
 		console.log(cityName);
 
@@ -70,6 +72,10 @@
 				});
 
 				$('#city').html(cityName);
+			});
+
+			getWeather.fail(function() {
+				alert('Failed to load forecast, oops!');
 			});
 		};
 
