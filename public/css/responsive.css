@@ -1,0 +1,79 @@
+html {
+	font-size: 16px;
+}
+
+body {
+	background-color: rgb(228, 223, 212);
+}
+
+.container {
+	width: 80%;
+	margin: 0 auto;
+	margin-top: 8rem;
+	margin-bottom: 4rem;
+	text-align: center;
+}
+
+p {
+	padding: 1rem 0;
+	color: rgb(50, 44, 44);
+}
+
+/* Device width < 550px */
+.block {
+	margin: .5rem 0;
+	width: 90%;
+	min-height: 8rem;
+	display: inline-block;
+	border-style: none;
+	border-radius: 2rem;
+	text-align: center;
+	padding: 1rem;
+	background-color: rgb(249, 249, 255);
+	font-size: 4rem;
+}
+
+.block:hover {
+	box-shadow: .5rem .5rem navy;
+}
+
+.block:nth-child(1):hover {
+	background-color: rgb(189, 189, 255);
+}
+
+.block:nth-child(2):hover {
+	background-color: rgb(255, 182, 182);
+}
+
+.block:nth-child(3):hover {
+	background-color: rgb(255, 210, 129);
+}
+
+.block:nth-child(4):hover {
+	background-color: rgb(245, 181, 255);
+}
+
+.block:nth-child(5):hover {
+	background-color: rgb(160, 255, 160);
+}
+
+.block:nth-child(6):hover {
+	background-color: rgb(141, 234, 237);
+}
+
+/* Device width > 550px */
+@media screen and (min-width: 550px) {
+	.block { width: 30%; 
+			margin: .8rem .8rem;
+			font-size: 2rem;
+	}
+/*	.block { width: 100%;}
+*/}
+
+/* Device width > 800px */
+@media screen and (min-width: 800px) {
+	.block { width: 25%; 
+			margin-bottom: .5rem .5rem;
+			font-size: 2rem;
+	}
+}
