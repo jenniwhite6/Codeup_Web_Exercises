@@ -42,10 +42,10 @@
 		var gimmeTheWeather = function() {
 
 			var getWeather = $.get("http://api.openweathermap.org/data/2.5/forecast/daily", {
-		    APPID: "467fce2fbe4d967cacd8c8886374905a",
-		    q: cityName,
-	    	cnt: 3,
-		    units: "imperial"
+			    APPID: "467fce2fbe4d967cacd8c8886374905a",
+			    q: cityName,
+		    	cnt: 3,
+			    units: "imperial"
 			});
 
 			getWeather.done(function(data) {
@@ -79,7 +79,7 @@
 			});
 		};
 
-		$(document).ready(gimmeTheWeather());
+		$(document).ready(gimmeTheWeather);
 
 	</script>
 
