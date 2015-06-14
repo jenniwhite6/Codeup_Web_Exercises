@@ -1,0 +1,59 @@
+html { 
+	font-size: 16px;
+	font-family: 'Arvo', serif;
+}
+
+p {
+	font-size: 1.7em;
+}
+
+h1 {
+	z-index: 100;
+	font-size: 3em;
+	display: inline-block;
+	border-bottom: .25em solid white;
+}
+
+.canvas {
+	z-index: 50;
+}
+
+.circle {
+	height: 6.25em;
+	width: 6.25em;
+	border-radius: 50%;
+}
+
+.huge-circle {
+	height: 30em;
+	width: 30em;
+	border-radius: 15em;
+	text-indent: 7.5em;
+}
+
+.square {
+	height: 8em;
+	width: 8em;
+}
+
+.tiny-square {
+	height: 4em;
+	width: 4em;
+}
+
+.huge-square {
+	height: 20em;
+	width: 20em;
+}
+
+.vert-rect {
+	height: 14em;
+	width: 5em;
+}
+
+.horiz-rect {
+	height: 10.25em;
+	width: 22.75em;
+	border-radius: 1em;
+}
+

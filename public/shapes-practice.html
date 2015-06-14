@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Shapes on shapes</title>
+	<link rel='stylesheet' href='/css/normalize.css'>
+	<link href='http://fonts.googleapis.com/css?family=Arvo' rel='stylesheet' type='text/css'>
+	<link rel='stylesheet' href='/css/shapes-practice.css'>
+</head>
+<body>
+
+	<h1>Words of Encouragement</h1>
+
+	<div class='canvas'></div>
+
+	<script src='/js/jquery.js'></script>
+	<script>
+	(function() {
+		"use strict";
+
+		// grabs elements w/ jQuery
+		var body = $('body');
+		var canvas = $('.canvas');
+		var shapeSpace = $('.shapeSpace');
+
+		// establishes shape and phrase sets
+		var shapeSet = ['circle', 'huge-circle', 'square', 'tiny-square', 'huge-square', 'vert-rect', 'horiz-rect'];
+		var phraseSet = ['Rockin\' it!', '#keepitup', 'Wowwowweewow', '2 Legit 2 Quit', 'Go get \'em, tiger.', 'You are turtle-y awesome', 'When you got it, flaunt it.'];
+
+		// sets initial body background color
+		body.css({
+			'background-color': 'yellow',
+		});
+
+		var showRandomShapeAtRandomPlace = setInterval(function(){
+
+			// Math.random, at its finest
+			var randomShape = shapeSet[Math.floor(Math.random() * shapeSet.length)];
+
+			var randomColor = 'rgb(' + Math.floor(Math.random() * 255) + ',' + Math.floor(Math.random() * 255) + ',' + Math.floor(Math.random() * 255) + ')';
+
+			var randomPhrase = phraseSet[Math.floor(Math.random() * phraseSet.length)];
+
+			// creates x and y coordinates for the shape
+			var randomX = Math.floor(Math.random() * 800) + 10;
+			var randomY = Math.floor(Math.random() * 400) + 200;
+
+			var randomBackColor = 'rgb(' + Math.floor(Math.random() * 255) + ',' + Math.floor(Math.random() * 255) + ',' + Math.floor(Math.random() * 255) + ')';
+
+			// adds div for the shape space + random phrase
+			var addShape = canvas.html("<div class='shapeSpace " + randomShape + "'><p>" + randomPhrase + "</p></div>");
+
+			// applies positioning + the randomly generated x and y coords + the shape's background color
+			$('.shapeSpace').css({
+			  position : 'absolute',
+			  top : randomY/16 + 'em',
+			  left : randomX/16 + 'em',
+			  'background-color': randomColor,
+			});
+
+			// changes body background color
+			$(body).css({
+				'background-color': randomBackColor,
+			});
+
+			// makes shape appear (muy importante)
+			addShape.fadeIn(1000);
+
+		}, 1500);
+	}());
+	</script>
+
+</body>
+</html>
