@@ -1,33 +1,36 @@
 <?php
 
+$a = 10;
+$b = 2;
+
 function add($a, $b)
 {
-    echo $a + $b;
+    return $a + $b;
 }
 
 function subtract($a, $b)
 {
-    // Add code here
+    return $a - $b;
 }
 
 function multiply($a, $b)
 {
-    // Add code here
+    return $a * $b;
 }
 
 function divide($a, $b)
 {
-    // Add code here
+    return $a / $b;
 }
 
-// Add code to test your functions here
+function modulus($a, $b)
+{
+	return $a % $b;
+}
 
+echo add(1000,200) . PHP_EOL;
+echo subtract(76,1) . PHP_EOL;
+echo multiply(6,3) . PHP_EOL;
+echo divide(100,10) . PHP_EOL;
+echo modulus($a,$b) . PHP_EOL;
 
-// Add a function modulus that finds the modulus of 2 numbers.
-// Add test code and verify the output of modulus.
-// Create variables $a and $b at the top of your script
-//  and give them different values. Watch what happens
-//   (or, does not happen) to your function output as
-//    you set and modify $a & $b outside of your functions. 
-//    Think carefully about how this behavior differs from 
-//    the way JavaScript handles variables.
