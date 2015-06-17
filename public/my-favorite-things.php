@@ -28,6 +28,7 @@ $favorites = [
 ];
 
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -39,25 +40,25 @@ $favorites = [
 
 	<table style="width:80%; text-align: center">
 	
-		<?php foreach ($favorites as $category => $item) { ?>
+		<?php foreach ($favorites as $category => $item): ?>
 			<tr>
 				<th>
-					<?php echo $category?>
+					<?= $category?>
 				</th>
 				<td> 
-					<?php echo $item[0]?>
+					<?= $item[0]?>
 				</td>
 				<td> 
-					<?php echo $item[1]?>
+					<?= $item[1]?>
 				</td>
 				<td> 
-					<?php echo $item[2]?>
+					<?= $item[2]?>
 				</td>
 				<td> 
-					<?php echo $item[3]?>
+					<?= $item[3]?>
 				</td>
 			</tr>
-		<?php } ?>
+		<?php endforeach; ?>
 	</table>
 
 </body>
