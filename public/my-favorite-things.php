@@ -33,12 +33,24 @@ $favorites = [
 <html>
 <head>
 	<title>Fave things</title>
+
+	<style>
+		table {
+			width: 80%;
+			text-align: center;
+		}
+
+		td {
+			padding: 10px;
+		}
+	</style>
+
 </head>
 <body>
 
 	<h1>&#9835; These are a few of my favorite things &#9835;</h1>
 
-	<table style="width:80%; text-align: center">
+	<table>
 	
 		<?php foreach ($favorites as $category => $item): ?>
 			<tr>
@@ -59,6 +71,7 @@ $favorites = [
 				</td>
 			</tr>
 		<?php endforeach; ?>
+
 	</table>
 
 </body>
