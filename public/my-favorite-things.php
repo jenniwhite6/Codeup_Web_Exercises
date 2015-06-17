@@ -35,13 +35,55 @@ $favorites = [
 	<title>Fave things</title>
 
 	<style>
-		table {
-			width: 80%;
+
+		html {
+			font-size: 16px;
+		}
+
+		body {
+			background-color: gray;
+			color: white;
 			text-align: center;
 		}
 
+		h1 {
+			margin-top: 10rem;
+			font-size: 3rem;
+		}
+
+		table {
+			background-color: rgb(171, 166, 203);
+			padding: 2rem;
+			width: 80%;
+			margin: 3rem auto;
+			text-align: center;
+			border-radius: 2rem;
+		}
+
+		th {
+			font-size: 2rem;
+			text-shadow: .1rem .1rem black;
+		}
+
 		td {
-			padding: 10px;
+			padding: 1rem;
+			font-size: 1.5rem;
+			border-radius: 1rem;
+		}
+
+		tr:nth-child(2) > td:nth-child(2):hover {
+			background-color: teal;
+		}
+
+		tr:nth-child(2) > td:nth-child(3):hover {
+			background-color: turquoise;
+		}
+
+		tr:nth-child(2) > td:nth-child(4):hover {
+			background-color: blue;
+		}
+		tr:nth-child(2) > td:nth-child(5):hover {
+			background-color: red;
 		}
 	</style>
 
