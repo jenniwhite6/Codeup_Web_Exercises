@@ -1,47 +1,16 @@
 <?php 
 
-	$nouns = [
-		'mug',
-		'elephant',
-		'printer',
-		'chair',
-		'thermos',
-		'hat',
-		'squirrel',
-		'pencil',
-		'cable',
-		'machine',
-		'pencil',
-		'silverware',
-		'doorway',
-		'window',
-		'blob',
-		'bowl-cut'
-	];
+// FUNCTIONS
 
-	$adjectives = [
-		'didactic',
-		'fastidious',
-		'prolific',
-		'luminous',
-		'obtuse',
-		'quiescent',
-		'serpentine',
-		'turbulent',
-		'awesome',
-		'zealous',
-		'competitive',
-		'diagonal',
-		'curvacious',
-		'metallic',
-		'ceramic',
-		'speedy',
-		'rubberized',
-		'zany'
-	];
+	function randomArrayValue($array) 
+	{
+		$index = array_rand($array);
+		return $array[$index];
+	}
 
-	$randomAdj = $adjectives[array_rand($adjectives)];
-	$randomNoun = $nouns[array_rand($nouns)];
+// DATA
+
+	include 'server-name-data.php';
 
 ?>
 
@@ -57,13 +26,17 @@
 
 	<main class='wrap'>
 		<h1>Welcome to:</h1>
+
 		<h2 class='title'>Random Server Generator</h2>
+
 		<h3>
-			<span class='parens'>{</span> 
-			<?= $randomAdj . ' ' . $randomNoun ?> 
-			<span class='parens'>}</span>
+			<span class='curly'>{</span> 
+			<?= randomArrayValue($adjectives) . ' ' . randomArrayValue($nouns) ?> 
+			<span class='curly'>}</span>
 		</h3>
+
 		<a class='button' href='javascript:location.reload(true)'>New one, please!</a>
+
 	</main>	
 
 </body>
