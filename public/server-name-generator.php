@@ -15,6 +15,8 @@
 		'silverware',
 		'doorway',
 		'window',
+		'blob',
+		'bowl-cut'
 	];
 
 	$adjectives = [
@@ -28,7 +30,14 @@
 		'turbulent',
 		'awesome',
 		'zealous',
-
+		'competitive',
+		'diagonal',
+		'curvacious',
+		'metallic',
+		'ceramic',
+		'speedy',
+		'rubberized',
+		'zany'
 	];
 
 	$randomAdj = $adjectives[array_rand($adjectives)];
@@ -49,7 +58,11 @@
 	<main class='wrap'>
 		<h1>Welcome to:</h1>
 		<h2 class='title'>Random Server Generator</h2>
-		<h3><span class='parens'>{</span> <?php echo $randomAdj . ' ' . $randomNoun ?> <span class='parens'>}</span></h3>
+		<h3>
+			<span class='parens'>{</span> 
+			<?= $randomAdj . ' ' . $randomNoun ?> 
+			<span class='parens'>}</span>
+		</h3>
 		<a class='button' href='javascript:location.reload(true)'>New one, please!</a>
 	</main>	
 
