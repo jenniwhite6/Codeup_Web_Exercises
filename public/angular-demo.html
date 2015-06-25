@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Angular Demo</title>
+	<style>
+		[ng-cloak] {
+			display: none;
+		}
+	</style>
+</head>
+<body ng-app="angularDemoModule" ng-cloak>
+
+	<h1>I am powered by Angular!</h1>
+	<h2>{{ "Hello, Apollo!" | uppercase }}</h2>
+	<h2>{{ 20+57+892*98273948 | currency:"$":0 }}</h2>
+	<h2>{{ 6/25/2015 | date:"longDate" }}</h2>
+
+
+
+	<script type="text/javascript" src="/js/angular.min.js"></script>
+	<script type="text/javascript" src="/js/angular-demo.js"></script>
+
+</body>
+</html>
