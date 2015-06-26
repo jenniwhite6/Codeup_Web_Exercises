@@ -1,0 +1,49 @@
+<html ng-app="templateTest" ng-cloak>
+<head>
+	<meta charset='utf-8'>
+	<title>Angular Template Test</title>
+	<style>
+		[ng-cloak] {
+			display: none !important;
+		}
+
+		ul {
+			margin-top: 40px;
+		}
+
+		li {
+			display: inline;
+			letter-spacing: 5px;
+			font-size: 36px;
+		}
+
+		li:first-child {
+     		font-style: italic;
+ 		}
+ 		li:last-child {
+     		font-weight: bold;
+ 		}
+ 		img {
+ 			height: 200px;
+ 			width: auto;
+ 			margin: 20px;
+ 		}
+	</style>
+</head>
+<body>
+
+	<ul>
+		<li ng-repeat="number in [0,1,2,3,4,5,6,7,8,9]" ng-hide="number % 3 == 0">{{ number }}</li>
+	</ul>	
+
+	<ul>
+		<li ng-repeat="letter in ['A', 'B', 'C', 'D', 'E', 'F']">{{ letter | uppercase }} {{ letter | lowercase }} </li>
+	</ul>
+
+	<img ng-repeat="image in ['hi.jpg','what.jpg','is.png', 'up.jpg']" ng-src="/img/{{ image }}">	
+
+	<script type="text/javascript" src="/js/angular.min.js"></script>
+	<script type="text/javascript" src="js/templateTest.js"></script>
+
+</body>
+</html>
