@@ -1,0 +1,71 @@
+html {
+	font-size: 16px;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+	margin: 0;
+}
+
+a {
+	display: inline-block;
+	color: white;
+	text-decoration: none;
+}
+
+nav {
+	position: relative;
+	top: 0;
+	width: 100%;
+	height: 4rem;
+	margin-right: 3rem;
+	background-color: blue;
+}
+
+.top-nav-links {
+	display: block;
+	position: absolute;
+	right: 0;
+	padding: 1rem;
+}
+
+.title-header {
+	margin: 2.5rem 4rem;
+}
+
+.title-header h1 {
+	font-size: 3rem;
+}
+
+.title-header h2 {
+	font-size: 2rem;
+}
+
+.main-wrap {
+	margin: 2rem 4rem;
+	width: 50%;
+}
+
+article {
+	margin-bottom: 2rem;
+}
+
+footer {
+	width: 100%;
+	height: 4rem;
+	position: absolute;
+	bottom: 0;
+	background-color: gray;
+}
+
+footer p {
+	display: inline-block;
+	padding: 1rem;
+	margin-left: 2rem;
+}
+
+.footer-links {
+	display: inline-block;
+	position: absolute;
+	right: 0;
+	padding: 1rem;
+}
