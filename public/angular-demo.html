@@ -4,7 +4,7 @@
 	<title>Angular Demo</title>
 	<style>
 		[ng-cloak] {
-			display: none;
+			display: none !important;
 		}
 	</style>
 </head>
@@ -14,7 +14,6 @@
 	<h2>{{ "Hello, Apollo!" | uppercase }}</h2>
 	<h2>{{ 20+57+892*98273948 | currency:"$":0 }}</h2>
 	<h2>{{ 6/25/2015 | date:"longDate" }}</h2>
-
 
 
 	<script type="text/javascript" src="/js/angular.min.js"></script>

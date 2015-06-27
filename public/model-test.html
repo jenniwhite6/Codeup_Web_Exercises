@@ -1,0 +1,220 @@
+<html ng-app="modelTest" ng-cloak>
+<head>
+	<title>Angular Model Test </title>
+	<link rel="stylesheet" href="/css/classic.css">
+	<style>
+
+		/**** Outer wrapper styling ****/
+
+		[ng-cloak] {
+			display: none;
+		}
+
+		body {
+			background-color: rgb(145, 191, 252);
+		}
+
+		main.wrap {
+			margin: 100px auto;
+			width: 90%;
+			background-color: transparent;
+		}
+
+		/**** Font styling ****/
+
+		h1, h2, h3, h4, h5, h6 {
+			margin: 0;
+			margin-top: 10px;
+			padding: 0;
+		}
+
+		a {
+			margin-top: 10px;
+			text-decoration: none;
+		}
+
+		h1 {
+			font-size: 42px;
+		}
+
+		h2, h3 {
+			color: rgb(102, 100, 100);
+		}
+
+		/**** Form styling ****/
+
+		input.ng-invalid.ng-touched {
+			background-color: rgb(247, 188, 188);
+		}
+
+		form {
+			width: 500px;
+			margin: auto;
+			font-size: 24px;
+		}
+
+		input, select {
+			padding: 7px;
+			border-style: none;
+			border-radius: 3px;
+		}
+
+		select {
+			font-size: 16px;
+		}
+
+		.dropdown, .form-github {
+			margin-top: 30px;
+		}
+
+		.icon-menu-text {
+			display: inline;
+		}
+
+		/**** Icon styling ****/
+
+		.img-box {
+			float: right;
+			height: 150px;
+			width: 150px;
+			border-radius: 5px;
+			border-style: none;
+			margin: 0;
+			margin-left: 40px;
+			margin-right: 20px;
+		}
+
+		.img-box img {
+			width: 150px;
+			background-color: white;
+			border-radius: 5px;
+		}
+
+		/**** Address card styling ****/
+
+		.address-card {
+			padding: 30px;
+			padding-left: 40px;
+			margin: 60px auto;
+			background-color: rgb(232, 232, 228);
+			box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.34);
+			min-height: 200px;
+			width: 500px;
+			font-family: Arial;
+		}
+
+		.user-data {
+			width: 300px;
+			border-left: 5px solid white;
+			padding-left: 10px;
+		}
+
+		/**** User color classes ****/
+
+		.red h1 {
+			color: red;
+		}
+
+		.red h2, .blue h3 {
+			color: rgb(250, 101, 101);
+		}
+
+		.blue h1 {
+			color: blue;
+		}
+
+		.blue h2, .blue h3 {
+			color: rgb(94, 94, 239);
+		} 
+
+		.green h1 {
+			color: rgb(31, 148, 46);
+		}
+
+		.green h2, .green h3 {
+			color: rgb(72, 199, 72);
+		}
+
+	</style>
+</head>
+<body>
+
+	<main class='wrap'>
+
+		<form novalidate>
+
+			<div class='form-main'>
+
+			    <label for="first_name">Hi, my name is </label>
+			    <input type="text" id="first_name" placeholder="First Name" ng-model="user.firstName" required>
+
+			    <label for="last_name"> </label>
+			    <input type="text" id="last_name" placeholder="Last Name" ng-model="user.lastName" value="White" required>,
+
+			    <label for="email"> and my electronic mail address is: </label>
+			    <input type="email" id="email" placeholder="cool@awesome.com" ng-model="user.email" required>.
+
+			    <label for="birthday">My first day on this planet was </label>
+			    <input type="date" id="birthday" class="datepicker" ng-model="user.birthday" required>.
+
+			</div>
+
+			<div class='dropdown'></div>
+			    <select ng-model="user.icon">
+					<option value="/img/taco.png">Spicy</option>
+					<option value="/img/hi.jpg">Welcoming</option>
+					<option value="/img/caterpillar.gif">Colorful</option>
+					<option value="/img/cuddly.jpg">Cuddly</option>
+					<option value="/img/cute-dinosaur.png">Dangerous</option>
+				</select>
+
+			    <p class='icon-menu-text'><-- This word best describes me.</p>
+			</div>
+
+			<div class='dropdown'></div>
+			    <select ng-model="user.color">
+					<option value="red">Red</option>
+					<option value="blue">Blue</option>
+					<option value="green">Green</option>
+					<option value="black">Black</option>
+				</select>
+
+			    <p class='icon-menu-text'><-- And this is my fave color.</p>
+			</div>
+
+			<div class='form-github'>
+			    <label for="github">P.S. I have a sweet GitHub profile, accessible at the following URL: </label>
+			    <input type="url" id="github" placeholder="http://github.com/username" style="width: 170px;" ng-model="user.github" required>.
+			</div>
+
+		</form>
+
+		<div class='address-card'>
+
+			<div class='img-box'>
+ 				<img ng-src="{{ user.icon }}">
+ 			</div>
+
+			<div class='user-data {{ user.color }}'>
+
+				<h1>{{ user.firstName }} {{ user.lastName }}</h1>
+				<h2 class='email'>{{ user.email }}</h2>
+				<h2 class='birthday'>{{ user.birthday | date:"longDate" }}</h2>
+				<a href="{{ user.github }}"><h3 class='github'>{{ user.github }}</h3></a>
+
+			</div>
+		</div>
+
+	</main>
+
+	<script type="text/javascript" src="/js/angular.min.js"></script>
+	<script type="text/javascript" src="/js/modelTest.js"></script>
+	<script type="text/javascript" src="/js/jquery.js"></script>
+	<script type="text/javascript" src="/js/picker.js"></script>
+	<script type="text/javascript" src="/js/picker.date.js"></script>
+	<script>
+		// $('.datepicker').pickadate()
+	</script>
+
+</body>
+</html>
