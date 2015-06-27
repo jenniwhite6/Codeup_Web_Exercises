@@ -1,0 +1,60 @@
+<html ng-app='controllerTest' ng-cloak>
+<head>
+	<meta charset='utf-8'>
+	<title>Controller Test</title>
+	<style>
+		[ng-cloak] {
+			display: none;
+		}
+
+		table {
+			width: 500px;
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	<div ng-controller='CartController as cart'>
+
+		<form name='itemForm' novalidate ng-submit='cart.addNewItem()'>
+
+			<label for='name'>Name</label>
+			<input type='text' id='name' placeholder='Item name' ng-model='cart.newItem.name'></input>
+
+			<label for='quantity'>Quantity</label>
+			<input type='number' id='quantity' placeholder='e.g. 5' ng-model='cart.newItem.quantity'></input>
+
+			<label for='price'>Price $</label>
+			<input type='integer' id='price' placeholder='10.00' ng-model='cart.newItem.price'></input>
+
+			<input type='submit'></input>
+		</form>	
+
+		<table>
+			<tr>
+				<th>Item</th>
+				<th>Quantity</th>
+				<th>Price</th>
+				<th>Total</th>
+			</tr>
+			<tr ng-repeat='item in cart.items'>
+				<td>{{ item.name }}</td>
+				<td>{{ item.quantity }}</td>
+				<td>{{ item.price | currency }}</td>
+				<td>{{ item.price * item.quantity | currency }}</td>
+			</tr>
+		</table>	
+		<ul>
+		</ul>
+	</div>
+
+	<script type="text/javascript" src="/js/angular.min.js"></script>
+	<script type="text/javascript" src="/js/controllerTest.js"></script>
+	<script type="text/javascript" src="/js/jquery.js"></script>
+
+
+
+	</div>
+
+</body>
+</html>
