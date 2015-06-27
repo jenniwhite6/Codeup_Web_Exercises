@@ -41,7 +41,7 @@
 			color: rgb(102, 100, 100);
 		}
 
-		.email:hover, .github:hover {
+		.github:hover {
 			color: white !important;
 		}
 
@@ -166,22 +166,22 @@
 			<div class='form-main'>
 
 			    <label for="first_name">Hi, my name is </label>
-			    <input type="text" id="first_name" placeholder="First Name" ng-model="user.firstName" required>
+			    <input type="text" id="first-name" placeholder="First Name" ng-model="user.firstName" required>
 
 			    <label for="last_name"> </label>
-			    <input type="text" id="last_name" placeholder="Last Name" ng-model="user.lastName" value="White" required>,
-
-			    <label for="email"> and my electronic mail address is: </label>
-			    <input type="email" id="email" placeholder="cool@awesome.com" ng-model="user.email" required>.
-
+			    <input type="text" id="last-name" placeholder="Last Name" ng-model="user.lastName" value="White" required>!
+			    
 			    <label for="company">I work at </label>
 			    <input type="company" id="company" placeholder="XYZ Company" ng-model="user.company" required>,
 
 			    <label for="job">and my job position is </label>
 			    <input type="job" id="job" placeholder="Director of Greatness," ng-model="user.job" required>.
 
-			    <label for="birthday">My first day on this planet was </label>
-			    <input type="date" id="birthday" class="datepicker" ng-model="user.birthday" required>.
+			    <label for="email">You can reach me aquí: </label>
+			    <input type="email" id="email" placeholder="cool@awesome.com" ng-model="user.email" required>.</br>
+
+	<!-- 		    <label for="birthday">My first day on this planet was </label>
+			    <input type="date" id="birthday" class="datepicker" ng-model="user.birthday" required>. -->
 
 			</div>
 
@@ -226,7 +226,7 @@
 				<h1>{{ user.firstName }} {{ user.lastName }}</h1>
 				<h2 class='italics job-info'>{{ user.job }} {{ user.company }}</h2>
 				<h3 class='birthday'>{{ user.birthday | date:"longDate" }}</h3>
-				<a href="mailto:{{ user.email }}"><h3 class='email'>{{ user.email }}</h3></a>
+				<h3 class='email'>{{ user.email }}</h3>
 				<a href="{{ user.github }}"><h3 class='github'>{{ user.github }}</h3></a>
 
 			</div>
