@@ -7,45 +7,73 @@
 			display: none;
 		}
 
-		table {
-			width: 500px;
-			text-align: center;
+		.wrap {
+			width: 1200px;
+			margin: 100px auto;
 		}
+
+		.table-container {
+			min-height: 200px;
+			margin: 0 auto;
+		}
+
+		table {
+			width: 700px;
+			text-align: center;
+			position: relative;
+		}
+
+		input.ng-invalid.ng-touched {
+			background-color: rgb(247, 188, 188);
+		}
+
+		/*form.ng-submitted > input {
+			background-color: white !important;
+		}*/
+
 	</style>
 </head>
 <body>
-	<div ng-controller='CartController as cart'>
+	<div class='wrap' ng-controller='CartController as cart'>
 
 		<form name='itemForm' novalidate ng-submit='cart.addNewItem()'>
 
 			<label for='name'>Name</label>
-			<input type='text' id='name' placeholder='Item name' ng-model='cart.newItem.name'></input>
+			<input type='text' id='name' placeholder='Item name' ng-model='cart.newItem.name' required>
 
 			<label for='quantity'>Quantity</label>
-			<input type='number' id='quantity' placeholder='e.g. 5' ng-model='cart.newItem.quantity'></input>
+			<input type='number' id='quantity' placeholder='e.g. 5' ng-model='cart.newItem.quantity' required>
 
 			<label for='price'>Price $</label>
-			<input type='integer' id='price' placeholder='10.00' ng-model='cart.newItem.price'></input>
+			<input type='integer' id='price' placeholder='10.00' ng-model='cart.newItem.price' required>
 
-			<input type='submit'></input>
+			<input type='submit'>
 		</form>	
 
-		<table>
-			<tr>
-				<th>Item</th>
-				<th>Quantity</th>
-				<th>Price</th>
-				<th>Total</th>
-			</tr>
-			<tr ng-repeat='item in cart.items'>
-				<td>{{ item.name }}</td>
-				<td>{{ item.quantity }}</td>
-				<td>{{ item.price | currency }}</td>
-				<td>{{ item.price * item.quantity | currency }}</td>
-			</tr>
-		</table>	
-		<ul>
-		</ul>
+		<div class='table-container'>
+			<table>
+				<tr>
+					<th>Item</th>
+					<th>Quantity</th>
+					<th>Price per unit</th>
+					<th>Item subtotal</th>
+					<th>+ Sales tax (8.25%)</th>
+					<th>+ Shipping ($1.25 per item)</th>
+				</tr>
+				<tr ng-repeat='item in cart.items'>
+					<td>{{ item.name }}</td>
+					<td>{{ item.quantity }}</td>
+					<td>{{ item.price | currency }}</td>
+					<td>{{ item.price * item.quantity | currency }}</td>
+					<td>{{ item.price * item.quantity * 1.0825 | currency }}</td>
+					<td>{{ item.price * item.quantity * 1.0825 + 1.25 | currency }}</td>
+					</tr>
+			</table>
+		</div>
+
+		<h2>Subtotal: {{ cart.getSubTotal() | currency }}</h2>	
+		<h2>Total: {{ cart.getTotal() | currency }}</h2>
+
 	</div>
 
 	<script type="text/javascript" src="/js/angular.min.js"></script>
