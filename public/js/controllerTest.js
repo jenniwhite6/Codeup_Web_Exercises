@@ -7,18 +7,20 @@
 		
 		this.items = [];
 
-		this.newItem = {
-			'quantity': 0,
-		};
+		this.newItem = {};
 
 		this.addNewItem = function(itemForm) {
+
+			console.log(itemForm);
 
 			this.items.push(this.newItem);
 
 			this.newItem = {
-				'quantity': 1,
 				'shipping': 1.25,
 			};
+
+			itemForm.$setPristine();
+			itemForm.$setUntouched();
 		};
 		
 		this.getSubTotal = function() {
@@ -37,7 +39,6 @@
 		        total += (item.quantity * item.price * 1.0825 + 1.25);
 		    }
 		    return total;
-
 		};
 
 	});

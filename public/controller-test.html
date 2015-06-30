@@ -2,14 +2,63 @@
 <head>
 	<meta charset='utf-8'>
 	<title>Controller Test</title>
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
 	<style>
+
+		/**** Outer div styling ****/
+
 		[ng-cloak] {
 			display: none;
 		}
 
+		body {
+			font-family: 'Open Sans', sans-serif;
+		}
+
 		.wrap {
-			width: 1200px;
+			width: 900px;
 			margin: 100px auto;
+		}
+
+		/**** Form styling ****/
+
+		form {
+			margin-bottom: 40px;
+			margin-left: 20px;
+		}
+
+		input.ng-invalid.ng-touched {
+			border: 2px solid rgb(247, 188, 188);
+		}
+
+		input.ng-pristine {
+			border: 2px solid rgb(142, 247, 191);
+		}
+
+		input {
+			padding: 10px;
+			margin-right: 20px;
+			border-radius: 5px;
+			border-style: none;
+			border: 2px solid rgb(142, 247, 191);
+		}
+
+		.submit-btn {
+			border-style: none;
+		}
+
+		form.ng-pristine > .submit-btn {
+			background-color: rgb(224, 224, 224) !important;
+		}
+
+		form.ng-valid > .submit-btn {
+			background-color: rgb(62, 152, 239);
+		}
+
+		/**** Table styling ****/
+
+		.table-and-totals {
+			background-color: rgb(245, 244, 244);
 		}
 
 		.table-container {
@@ -18,68 +67,91 @@
 		}
 
 		table {
-			width: 700px;
-			text-align: center;
+			width: 100%;
+			text-align: left;
 			position: relative;
+			margin: 0 auto;
 		}
 
-		input.ng-invalid.ng-touched {
-			background-color: rgb(247, 188, 188);
+		tr {
+			border: 1px solid black;
 		}
 
-		/*form.ng-submitted > input {
-			background-color: white !important;
-		}*/
+		th {
+			background-color: rgb(142, 247, 191);
+			padding: 10px;
+			padding-left: 20px;
+		}
+
+		td {
+			padding-left: 20px;
+			font-weight: 300;
+			padding-top: 5px;			
+		}
+
+		.totals {
+			padding: 10px 20px;
+		}
 
 	</style>
 </head>
 <body>
 	<div class='wrap' ng-controller='CartController as cart'>
 
-		<form name='itemForm' novalidate ng-submit='cart.addNewItem()'>
+		<form name='itemForm' novalidate ng-submit='cart.addNewItem(itemForm)'>
 
-			<label for='name'>Name</label>
-			<input type='text' id='name' placeholder='Item name' ng-model='cart.newItem.name' required>
+			<label for='name'>Item name</label>
+			<input type='text' id='name' placeholder='e.g. nunchuk' ng-model='cart.newItem.name' required>
 
 			<label for='quantity'>Quantity</label>
 			<input type='number' id='quantity' placeholder='e.g. 5' ng-model='cart.newItem.quantity' required>
 
 			<label for='price'>Price $</label>
-			<input type='integer' id='price' placeholder='10.00' ng-model='cart.newItem.price' required>
+			<input type='integer' id='price' placeholder='e.g. 5.50' ng-model='cart.newItem.price' required>
 
-			<input type='submit'>
+			<input class='submit-btn' type='submit' value='Add item' ng-disabled="itemForm.$invalid">
 		</form>	
 
-		<div class='table-container'>
-			<table>
-				<tr>
-					<th>Item</th>
-					<th>Quantity</th>
-					<th>Price per unit</th>
-					<th>Item subtotal</th>
-					<th>+ Sales tax (8.25%)</th>
-					<th>+ Shipping ($1.25 per item)</th>
-				</tr>
-				<tr ng-repeat='item in cart.items'>
-					<td>{{ item.name }}</td>
-					<td>{{ item.quantity }}</td>
-					<td>{{ item.price | currency }}</td>
-					<td>{{ item.price * item.quantity | currency }}</td>
-					<td>{{ item.price * item.quantity * 1.0825 | currency }}</td>
-					<td>{{ item.price * item.quantity * 1.0825 + 1.25 | currency }}</td>
+		<div class='table-and-totals'>
+			
+			<div class='table-container'>
+				<table>
+					<tr>
+						<th>Item</th>
+						<th>Quantity</th>
+						<th>Price per unit</th>
+						<th>Item subtotal</th>
+						<th>+ Sales tax (8.25%)</th>
+						<th>+ Shipping ($1.25 per item)</th>
 					</tr>
-			</table>
-		</div>
+					<tr ng-repeat='item in cart.items'>
+						<td>{{ item.name }}</td>
+						<td>{{ item.quantity }}</td>
+						<td>{{ item.price | currency }}</td>
+						<td>{{ item.price * item.quantity | currency }}</td>
+						<td>{{ item.price * item.quantity * 1.0825 | currency }}</td>
+						<td>{{ item.price * item.quantity * 1.0825 + 1.25 | currency }}</td>
+						</tr>
+				</table>
+			</div>
 
-		<h2>Subtotal: {{ cart.getSubTotal() | currency }}</h2>	
-		<h2>Total: {{ cart.getTotal() | currency }}</h2>
+			<div class='totals'>
+				<h3>Subtotal: {{ cart.getSubTotal() | currency }}</h3>	
+				<h3>Total: {{ cart.getTotal() | currency }}</h3>
+			</div>
+
+		</div>
 
 	</div>
 
 	<script type="text/javascript" src="/js/angular.min.js"></script>
 	<script type="text/javascript" src="/js/controllerTest.js"></script>
 	<script type="text/javascript" src="/js/jquery.js"></script>
-
+	<script>
+		$('.submit-btn').click(function() {
+			$('#name').focus();
+		});
+	</script>
 
 
 	</div>
