@@ -71,22 +71,32 @@
             'use strict';
 
             var move = function() {
-                $('.caterpillar').animate({left: '+=100'}, 1000);
+                $('.caterpillar').animate({
+                    left: '+=100',
+                    width: '-=90'
+                }, 1000);
+                $('.caterpillar').animate({
+                    width: '+=90'
+                }, 1000);
             }
 
             var scale = function() {
                 $('.caterpillar').animate({
-                    width: '+=50%',
+                    width: '+=20%',
                     height: '+=20%',
                 }, 1000);
             }
 
             var disappear = function() {
-                $('.caterpillar').animate({opacity: '0'}, 1000);
+                $('.caterpillar').animate({
+                    opacity: '0'
+                }, 1000);
             }
 
             var reappear = function() {
-                $('.caterpillar').animate({opacity: '1'}, 1000);
+                $('.caterpillar').animate({
+                    opacity: '1'
+                }, 1000);
             }
 
             var animate = function() {
