@@ -2,6 +2,7 @@
 <head>
 	<meta charset='utf-8'>
 	<title>Controller Test</title>
+	<link rel='stylesheet' href='/css/normalize.css'>
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
 	<style>
 
@@ -13,6 +14,7 @@
 
 		body {
 			font-family: 'Open Sans', sans-serif;
+			background-color: rgb(249, 252, 250);
 		}
 
 		.wrap {
@@ -27,20 +29,25 @@
 			margin-left: 20px;
 		}
 
+		input.ng-valid {
+			border: 2px solid rgb(142, 247, 191);
+		}
+
 		input.ng-invalid.ng-touched {
 			border: 2px solid rgb(247, 188, 188);
 		}
 
 		input.ng-pristine {
-			border: 2px solid rgb(142, 247, 191);
+			border: 2px solid rgb(224, 224, 224) ;
 		}
 
 		input {
 			padding: 10px;
+			margin: 0;
 			margin-right: 20px;
 			border-radius: 5px;
 			border-style: none;
-			border: 2px solid rgb(142, 247, 191);
+			max-width: 150px;
 		}
 
 		.submit-btn {
@@ -58,7 +65,10 @@
 		/**** Table styling ****/
 
 		.table-and-totals {
-			background-color: rgb(245, 244, 244);
+			background-color: rgb(223, 249, 235);
+			border-radius: 5px;
+			overflow: hidden;
+			padding-bottom: 20px;
 		}
 
 		.table-container {
@@ -69,28 +79,33 @@
 		table {
 			width: 100%;
 			text-align: left;
-			position: relative;
 			margin: 0 auto;
-		}
-
-		tr {
-			border: 1px solid black;
+			border-radius: 5px;
 		}
 
 		th {
 			background-color: rgb(142, 247, 191);
-			padding: 10px;
-			padding-left: 20px;
+			padding: 20px;
 		}
 
 		td {
 			padding-left: 20px;
+			padding-top: 10px;			
 			font-weight: 300;
-			padding-top: 5px;			
 		}
 
 		.totals {
-			padding: 10px 20px;
+			padding: 0 10px;
+			display: inline-block;
+		}
+
+		.subtotal {
+			border-top: 3px solid rgb(70, 247, 153);
+			padding-top: 10px;
+		}
+
+		.subtotal, .total {
+			margin: 10px;
 		}
 
 	</style>
@@ -101,13 +116,13 @@
 		<form name='itemForm' novalidate ng-submit='cart.addNewItem(itemForm)'>
 
 			<label for='name'>Item name</label>
-			<input type='text' id='name' placeholder='e.g. nunchuk' ng-model='cart.newItem.name' required>
+			<input type='text' id='name' placeholder='e.g. Nunchuk' ng-model='cart.newItem.name' required>
 
 			<label for='quantity'>Quantity</label>
 			<input type='number' id='quantity' placeholder='e.g. 5' ng-model='cart.newItem.quantity' required>
 
 			<label for='price'>Price $</label>
-			<input type='integer' id='price' placeholder='e.g. 5.50' ng-model='cart.newItem.price' required>
+			<input type='integer' id='price' placeholder='e.g. 6.30' ng-model='cart.newItem.price' required>
 
 			<input class='submit-btn' type='submit' value='Add item' ng-disabled="itemForm.$invalid">
 		</form>	
@@ -136,8 +151,8 @@
 			</div>
 
 			<div class='totals'>
-				<h3>Subtotal: {{ cart.getSubTotal() | currency }}</h3>	
-				<h3>Total: {{ cart.getTotal() | currency }}</h3>
+				<h3 class='subtotal'>Subtotal: {{ cart.getSubTotal() | currency }}</h3>	
+				<h3 class='total'>Total: {{ cart.getTotal() | currency }}</h3>
 			</div>
 
 		</div>
@@ -147,14 +162,12 @@
 	<script type="text/javascript" src="/js/angular.min.js"></script>
 	<script type="text/javascript" src="/js/controllerTest.js"></script>
 	<script type="text/javascript" src="/js/jquery.js"></script>
+	
 	<script>
 		$('.submit-btn').click(function() {
 			$('#name').focus();
 		});
 	</script>
-
-
-	</div>
 
 </body>
 </html>
