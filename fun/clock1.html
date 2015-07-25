@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Clock // 1</title>
+	<link rel='stylesheet' href='/css/normalize.css'>
+	<link rel='stylesheet' href='/css/clock1.css'></style>
+	<!-- <link href='http://fonts.googleapis.com/css?family=Press+Start+2P' rel='stylesheet' type='text/css'> -->
+	<link href='http://fonts.googleapis.com/css?family=Dosis:500,700,800' rel='stylesheet' type='text/css'>
+</head>
+<body>
+	<nav>
+		<div class='menu'>
+			<h2>About Clock // 1</h2>
+			<p>This clock was designed (a) on a whim and (b) to be whimsical!</p>
+			<p>Add some color + spontaneity to yer life with Clock // 1 :)</p>
+		</div>
+	</nav>
+	<div class='wrap'>
+		<section class='box'>
+			<h1 class='hour'></h1>
+			<h2 class='minute'></h2>
+			<a class='plus'>+</a>
+		</section>
+	</div>
+
+	<script src='/js/jquery.js'></script>
+	<script>
+		(function() {
+		"use strict"
+
+			var body = $('body');
+			var wrap = $('.wrap');
+			var box = $('.box');
+			var hour = $('.hour');
+			var minute = $('.minute');
+			var plus = $('.plus');
+			var menu = $('.menu');
+			var amOrPm = '';
+			var smallOrLarge = '';
+
+			function updateTime() {
+
+				var date = new Date();
+
+				var thisHour = date.getHours();
+				var thisMinute = date.getMinutes();
+
+				// adds zero to single-digit hour integer
+				if (thisHour.toString().length == 1) {
+					hour.html('0' + thisHour);
+				} else {
+					hour.html(thisHour);
+				}
+
+				// adds zero to single-digit minute integer
+				if (thisMinute.toString().length == 1) {
+					minute.html(':0' + thisMinute);
+				} else {
+					minute.html(':' + thisMinute);
+				}
+
+				// define AM or PM variable for later use
+				if (thisHour >= 0 && thisHour <= 11) {
+					amOrPm = 'AM';
+				} else if (thisHour >= 12 && thisHour <= 23) {
+					amOrPm = 'PM';
+				}
+
+				// sets hour text color to white (AM) or black (PM)
+				if (amOrPm == 'AM') {
+					hour.css('color', 'white');
+				} else if (amOrPm == 'PM') {
+					hour.css('color', 'black');
+				}
+
+				// define small minute or large minute for later use
+				if (smallOrLarge >= 0 && smallOrLarge <= 30 ) {
+					smallOrLarge = 'small';
+				} else if (smallOrLarge >= 31 && smallOrLarge <= 59) {
+					smallOrLarge = 'large';
+				}
+
+				// sets minute text color to white (<30) or black (>30)
+				if (smallOrLarge == 'small') {
+					minute.css('color', 'white');
+				} else if (smallOrLarge == 'large') {
+					minute.css('color', 'black');
+				}
+
+				// sets circle different color for each hour
+				switch(thisHour) {
+					case 0:
+			        	box.css('background-color', 'gray');
+			        	break;
+				    case 1:
+				    	box.css('background-color', 'blue');
+				    	break;
+				    case 2:
+				    	box.css('background-color', 'red');
+					    break;
+					case 3:
+			        	box.css('background-color', 'green');
+			        	break;
+				    case 4:
+				    	box.css('background-color', 'yellow');
+				    	break;
+				    case 5:
+				    	box.css('background-color', 'teal');
+					    break;
+					case 6:
+			        	box.css('background-color', 'gray');
+			        	break;
+				    case 7:
+				    	box.css('background-color', 'blue');
+				    	break;
+				    case 8:
+				    	box.css('background-color', 'blue');
+					    break;	
+					case 9:
+				    	box.css('background-color', 'blue');
+					    break;
+					case 10:
+			        	box.css('background-color', 'gray');
+			        	break;
+				    case 11:
+				    	box.css('background-color', 'blue');
+				    	break;
+				    case 12:
+				    	box.css('background-color', 'blue');
+					    break;
+					case 13:
+			        	box.css('background-color', 'gray');
+			        	break;
+				    case 14:
+				    	box.css('background-color', 'blue');
+				    	break;
+				    case 15:
+				    	box.css('background-color', 'blue');
+					    break;
+					case 16:
+			        	box.css('background-color', 'gray');
+			        	break;
+				    case 17:
+				    	box.css('background-color', 'teal');
+				    	break;
+				    case 18:
+				    	box.css('background-color', 'blue');
+					    break;
+					case 19:
+			        	box.css('background-color', 'gray');
+			        	break;
+				    case 20:
+				    	box.css('background-color', 'blue');
+				    	break;
+				    case 21:
+				    	box.css('background-color', 'blue');
+					    break;	
+					case 22:
+				    	box.css('background-color', 'blue');
+					    break;
+					case 23:
+			        	box.css('background-color', 'gray');
+			        	break;
+				}
+			};
+
+			updateTime();
+			setInterval(updateTime, 1000);
+
+			plus.click(function() {
+				plus.html('-');
+				menu.toggleClass('menu-appear');
+
+				if (menu.attr('class') == 'menu') {
+					plus.html('+');
+				}
+			});
+
+		})();
+	</script>
+</body>
+</html>

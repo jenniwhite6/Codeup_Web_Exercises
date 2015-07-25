@@ -1,0 +1,65 @@
+html {
+	font-size: 16px;
+	background-color: rgb(205, 200, 202);
+	font-family: 'Dosis', sans-serif;
+}
+
+.box {
+	position: relative;
+	border-radius: 50%;
+	margin: 8rem auto 0 auto;
+	z-index: 10;
+	width: 20rem;
+	height: 20rem;
+	text-align: center;
+}
+
+.plus {
+	z-index: 30;
+	position: absolute;
+	top: 18rem;
+	left: 8.5rem;
+	font-size: 7rem;
+	color: white;
+	text-decoration: none;
+}
+
+h1, h2 {
+	position: relative;
+	display: inline;
+	padding: 0;
+	margin: 0;
+}
+
+.menu {
+	z-index: 20;
+	margin: auto;
+	height: 100%;
+	width: 100%;
+	position: absolute; 
+	top: -100%; 
+	text-align: center;
+	font-size: 1.4rem;
+	line-height: 1.6rem;
+	border-left: 1rem solid black;
+	border-right: 1rem solid black;
+	background-color: rgba(255,255,255,.7);
+}
+
+.menu-appear {
+	bottom: 0;
+	top: 0;
+	margin: auto;
+}
+
+.hour {
+	font-size: 200px;
+	color: rgb(213, 212, 184);
+	top: 2rem;
+}
+
+.minute {
+	display: inline;
+	font-size: 3rem;
+	color: black;
+}

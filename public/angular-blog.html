@@ -1,0 +1,77 @@
+<html ng-app='angularBlog' ng-cloak>
+<head>
+	<meta charset='utf-8'>
+	<link rel='stylesheet' href='/css/normalize.css'>
+	<link rel='stylesheet' href='/css/bootstrap.min.css'>
+	<link rel='stylesheet' href='/css/scrolling-nav.css'>
+	<title>Angular Blog</title>
+	<style>
+		[ng-cloak] {
+			display: none;
+		}
+
+		.wrap {
+			width: 60%;
+			margin: 100px auto;
+		}
+
+		.date {
+			color: gray;
+		}
+
+		textarea {
+			display: block;
+			width: 590px;
+			height: 170px;
+		}
+
+		#submit-btn {
+			display: block;
+			margin-top: 20px;
+		}
+
+		.jumbotron {
+			padding-right: 60px;
+  			padding-left: 60px;
+		}
+
+		input, textarea {
+			border-style: none;
+			border: 1px solid gray;
+			border-radius: 6px;
+		}
+
+	</style>
+</head>
+<body ng-controller='BlogController as blog'>
+	<nav class='navbar navbar-inverse navbar-fixed-top'></nav>
+	<div class='wrap'>
+		<div class='jumbotron'>
+			<h1>Bloggy blog</h1>
+		</div>
+		<article ng-repeat='post in blog.posts'> 
+			<h2 class='title'>{{ post.title }}</h2>
+			<h4 class='date'> - {{ post.date }} - </h4>
+			<p class='content'>{{ post.content }}</p>
+		</article>
+		
+		<form name='postForm' novalidate ng-submit='blog.newPost(postForm)'>
+
+			<h4>Name your post</h4>
+			<input type='text' id='title' ng-model='blog.newPost.title'>
+			<h4>Date your post</h4>
+			<input type='date' id='date' ng-model='blog.newPost.date'>
+			<h4>Write your post</h4>
+			<textarea name='text' ng-model='blog.newPost.content'></textarea>
+			<input id='submit-btn' class='btn btn-lg btn-success' type='submit' value='Submit post' ng-disabled='postForm.$invalid'>
+
+		</form>
+	</div>
+
+	<script type="text/javascript" src="/js/angular.min.js"></script>
+	<script type="text/javascript" src='/js/angularBlog.js'></script>
+	<script type="text/javascript" src='/js/blogComment.js'></script>
+	<script type="text/javascript" src='/js/jquery.js'></script>
+	<script type="text/javascript" src='/js/bootstrap.min.js'></script>
+</body>
+</html>
